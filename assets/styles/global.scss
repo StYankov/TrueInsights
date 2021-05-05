@@ -1,0 +1,27 @@
+@import './variables';
+
+@import '/node_modules/bootstrap/scss/functions';
+@import '/node_modules/bootstrap/scss/variables';
+@import '/node_modules/bootstrap/scss/mixins';
+
+@import '/node_modules/bootstrap/scss/reboot';
+
+@import '/node_modules/bootstrap/scss/buttons';
+
+/**
+ * Shared Components
+ */ 
+@import './components/shared/header';
+@import './components/shared/sidebar';
+
+a:focus, button:focus, .btn:focus {
+    outline: none;
+}
+
+html, body {
+    height: 100%;
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}

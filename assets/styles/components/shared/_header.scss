@@ -1,0 +1,170 @@
+.header {
+    height: 100px;
+    padding: 0.4rem 1.2rem;
+    border-bottom: 2px solid #CFCFCF;
+    display: flex;
+    flex-direction: column;
+
+    @include media-breakpoint-up(md) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 300px;
+    }
+
+    &__qa-btn.btn {
+        border-radius: 4px;
+        background-color: $gray;
+        min-width: 180px;
+        padding: 0.7rem 0;
+        margin: 0 0.4rem;
+        box-shadow: 0 8px 12px -5px $dark;
+        text-align: center;
+        color: $dark;
+        letter-spacing: 0.2px;
+        font-size: 1.2rem;
+        transition: 0.3s all;
+
+
+        &:hover {
+            background-color: darken($gray, 10%);
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+
+        &-divider {
+            width: 3px;
+            background-color: $gray;
+            height: 30px;
+            margin: 0 0.5rem;
+        }
+    }
+
+    &-action-btn {
+        background-color: transparent;
+        border: 0;
+        padding: 8px;
+        color: $dark;
+        font-size: 1.5rem;
+        box-shadow: none;
+        transition: 0.2s all;
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        &:hover {
+            color: $accent; 
+        }
+    }
+
+    &__account {
+        position: relative;
+
+        .account-btn {
+            display: flex;
+            align-items: center;
+        }
+
+        .account-btn:hover {
+            svg {
+                color: $accent;
+            }
+
+            .account-avatar {
+                border-color: $accent;
+            }
+        }
+
+        .account-avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 3px solid $gray;
+            margin-right: 0.5rem;
+            transition: 0.2s border-color;
+        }
+    }
+}
+
+.account-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: calc(100% + 1.2rem);
+    right: 1rem;
+    min-width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px 2px $purple;
+    padding: 1rem 2rem;
+    z-index: 20;
+
+
+    &.active {
+        display: flex;
+    }
+
+    &__avatar {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        border: 3px solid $gray;
+        margin-bottom: 0.4rem;
+    }
+
+    &__username {
+        font-size: 1.4rem;
+        color: $purple;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    &__email {
+        font-size: 1rem;
+        color: $dark;
+        margin-bottom: 0;
+    }
+
+    &__settings {
+        font-size: 1rem;
+        color: $purple;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    &__nav {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-bottom: 2rem;
+    }
+
+    &__nav-link {
+        color: $purple;
+        margin-bottom: 0.6rem;
+        text-decoration: none;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        .link-icon {
+            display: inline-block;
+            width: 42px;
+            text-align: left;
+        }
+
+        svg {
+            font-size: 1.4rem;
+        }
+    }
+}
