@@ -22,9 +22,20 @@ export default {
   css: [
     '@/assets/styles/global.scss'
   ],
+  styleResources: {
+    scss: [
+      '@/assets/styles/_variables.scss',
+      '~/node_modules/bootstrap/scss/_functions.scss',
+      '~/node_modules/bootstrap/scss/_variables.scss',
+      '~/node_modules/bootstrap/scss/_mixins.scss'
+
+    ]
+  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/axios.js',
+    { src: '~/plugins/vue-sweetalert2.js', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -37,14 +48,16 @@ export default {
       imports: [
           {
             set: '@fortawesome/free-solid-svg-icons',
-            icons: ['faSearch', 'faChevronDown', 'faFileInvoiceDollar', 'faUsers', 'faNetworkWired', 'faSignOutAlt', 'faHome', 'faChartLine']
+            icons: ['faSearch', 'faChevronDown', 'faFileInvoiceDollar', 'faUsers', 'faNetworkWired',
+              'faSignOutAlt', 'faHome', 'faChartLine', 'faCog', 'faTrash']
           },
           {
             set: '@fortawesome/free-regular-svg-icons',
             icons: ['faBell']
           }
       ]
-   }]
+   }],
+   '@nuxtjs/style-resources'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -53,6 +66,7 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next'
   ],
   bootstrapVue: {
     bootstrapCSS: false,
@@ -60,8 +74,35 @@ export default {
     icons: false
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
-
+  axios: {
+    baseURL: process.env.BASE_URL + '/api/v1',
+    credentials: true
+  },
+  auth: {
+    redirect: {
+      home: '/',
+      login: '/auth/login'
+    },
+    strategies: {
+      local: {
+        token: {
+          property: 'token',
+          global: true
+        },
+        user: {
+          property: false
+        },
+        endpoints: {
+          login: { url: '/auth/login', method: 'post', propertyName: 'token' },
+          user: { url: '/user', method: 'get', property: false },
+          logout: { url: '/auth/logout', method: 'get' }
+        }
+      }
+    }
+  },
+  router: {
+    middleware: ['auth']
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     babel: {
@@ -69,5 +110,9 @@ export default {
         ["@babel/plugin-proposal-private-methods", { "loose": true }]
       ]
     }
+  },
+  env: {
+    baseURL: process.env.BASE_URL || 'http://stoil.com:8000',
+    keywordsLimit: 10
   }
 }

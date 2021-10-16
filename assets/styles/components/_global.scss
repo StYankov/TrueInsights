@@ -1,0 +1,33 @@
+div#__nuxt,
+#__layout,
+#__layout > div,
+.app,
+.container-fluid {
+  min-height: 100vh;
+}
+
+.main-content {
+    display: flex;
+    padding-left: 110px;
+    background-color: #DADADA;
+    min-height: 100vh;
+}
+
+.content-container {
+    margin: 1.5rem 1rem;
+    padding: 2rem 1rem;
+    flex-grow: 1;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 0 0px 25px 0px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    .container {
+        padding: 1rem 0;
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+.page-logo {
+    margin-bottom: 1.5rem;
+}

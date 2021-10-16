@@ -13,8 +13,8 @@
                 :title="menuItem.title"
                 :icon="menuItem.icon"
                 :fontawesome="menuItem.fontawesome || false"
-                :subitems="menuItem.subitems"    
-                :expand="expand"
+                :link="menuItem.to"
+                :subitems="menuItem.subitems"
             />
         </div>
     </div>

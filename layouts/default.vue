@@ -3,8 +3,10 @@
     <Header />
     <main class="container-fluid">
       <Sidebar />
-      <div class="content">
-        <Nuxt />
+      <div class="main-content">
+        <div class="content-container">
+          <Nuxt />
+        </div>
       </div>
     </main>
 

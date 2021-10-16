@@ -61,7 +61,7 @@ export default {
     },
     methods: {
         onOutsideClick(e) {
-            if(!this.$refs.accountModal.contains(e.target)) {
+            if(this.$refs.accountModal && !this.$refs.accountModal.contains(e.target)) {
                 this.beginExit();
             }
         },

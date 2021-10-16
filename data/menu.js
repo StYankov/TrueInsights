@@ -2,19 +2,24 @@ export default [
     {
         title: 'Home',
         icon: ['fas', 'home'],
-        fontawesome: true
+        fontawesome: true,
+        to: '/'
+
     },
     {
         title: 'The Keyword Finder',
         icon: '/images/logo-icon.png',
+        to: '/finder',
         subitems: [
             {
                 title: 'New Keyword Report',
-                link: '#'
+                link: '#',
+                to: '/finder/create'
             },
             {
                 title: 'Saved Reports',
-                link: '#'
+                link: '/finder',
+                to: '/finder',
             },
             {
                 title: 'Missing Keywords',
@@ -26,6 +31,7 @@ export default [
         title: 'Marketplace Analysis',
         icon: ['fas', 'chart-line'],
         fontawesome: true,
+        to: '#',
         subitems: [
             {
                 title: 'Perfect KPI Dashboard',

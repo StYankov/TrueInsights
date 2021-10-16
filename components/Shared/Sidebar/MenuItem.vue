@@ -7,11 +7,11 @@
             </nuxt-link> 
         </div>
         <div class="sidebar__menu-item__title">
-            <nuxt-link class="sidebar__menu-item__link" to="#">
+            <nuxt-link class="sidebar__menu-item__link" :to="link">
                 {{ title }}
             </nuxt-link>
             <div v-if="subitems.length" class="sidebar__menu__subitems">
-                <nuxt-link v-for="item in subitems" :key="item.link" :to="item.link" class="sidebar__menu__child-link animate_animated">
+                <nuxt-link v-for="item in subitems" :key="item.link" :to="item.to || item.link" class="sidebar__menu__child-link animate_animated">
                     {{ item.title }}
                 </nuxt-link>
             </div>

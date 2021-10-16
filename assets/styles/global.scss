@@ -8,18 +8,31 @@
 
 @import '/node_modules/bootstrap/scss/buttons';
 
+@import '/node_modules/bootstrap/scss/utilities/spacing';
+
 /**
  * Shared Components
  */ 
 @import './components/shared/header';
 @import './components/shared/sidebar';
+@import './components/shared/swal2';
+
+/**
+ * Global Styles
+ */
+@import './components/shared/headings';
+@import './components/global';
 
 a:focus, button:focus, .btn:focus {
     outline: none;
 }
 
-html, body {
+html {
     height: 100%;
+}
+
+body {
+    min-height: 100%;
 }
 
 * {
