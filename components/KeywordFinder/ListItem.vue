@@ -3,9 +3,7 @@
         <h2 class="keyword-item__name">{{ report.name }}</h2>
         <p class="keyword-item__summary">{{ summary }}</p>
         <span class="keyword-item__markets">
-            <span class="keyword-item__market">UK</span>
-            <span class="keyword-item__market">DE</span>
-            <span class="keyword-item__market">FR</span>
+            <span v-for="country in countries" :key="country" class="keyword-item__market">{{ country }}</span>
         </span>
 
         <span class="keyword-item__more">
@@ -32,7 +30,7 @@ export default {
     },
     computed: {
         url() {
-            return `/finder/view/${this.report.id}`;
+            return `/finder/edit/${this.report._id}`;
         },
         summary() {
             const keywordsCount = this.report.keywords.length;
@@ -47,13 +45,18 @@ export default {
             return this.report.status.charAt(0).toUpperCase() + this.report.status.slice(1);
         },
         statusClass() {
-            return `keyword-item__status--${this.report.status}`;
+            return `keyword-item__status--${this.report.status.toLowerCase()}`;
         },
         animationDelay() {
             const index = this.index || 0;
             return {
                 animationDelay: `${index / 10}s`
             };
+        },
+        countries() {
+            const countries = this.report.stores.map(x => x.country.slug);
+
+            return [...new Set(countries)].map(x => x.toUpperCase());
         }
     }
 }
@@ -129,6 +132,7 @@ export default {
         line-height: 1;
         border-top-left-radius: 1rem;
         padding: 0.4rem 0.6rem;
+        background-color: $purple;
 
         &--queued {
             background-color: #17c0eb;
@@ -138,7 +142,7 @@ export default {
             background-color: #7d5fff;
         }
 
-        &--processed {
+        &--ready {
             background-color: #3ae374;
         }
     }

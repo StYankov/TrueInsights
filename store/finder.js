@@ -5,7 +5,7 @@ export const finder = () => ({
 });
 
 export const state = () => ({
-    finders: [],
+    reports: [],
     finder: finder(),
     countries: [],
     stores: [],
@@ -34,6 +34,9 @@ export const mutations = {
     },
     resetFinder(state) {
         state.finder = finder();
+    },
+    addNewReport(state, report) {
+        state.reports.unshift(report);
     }
 }
 
@@ -42,13 +45,10 @@ export const actions = {
         try {
             const response = await this.$axios.get('countries');
 
-            console.log(response.data);
-
             commit('setProperty', { key: 'countries', value: response.data });
 
             return [true, null];
         } catch(e) {
-            console.log(e);
             return [false, e.errors];
         }
     },
@@ -66,6 +66,28 @@ export const actions = {
     async createReport({ commit, state }) {
         try {
             const response = await this.$axios.post('keyword-report', state.finder);
+
+            commit('addNewReport', response.data);
+
+            return [response.data, null];
+        } catch(e) {
+            return [null, e.errors];
+        }
+    },
+    async getReports({ commit }) {
+        try {
+            const response = await this.$axios.get('keyword-report');
+
+            commit('setProperty', { key: 'reports', value: response.data });
+        } catch(e) {
+            return [null, e.errors];
+        }
+    },
+    async getReport({ commit }, reportId) {
+        try {
+            const response = await this.$axios.get(`/keyword-report/${reportId}`);
+
+            commit('setProperty', { key: 'finder', value: response.data });
 
             return [response.data, null];
         } catch(e) {

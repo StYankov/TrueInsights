@@ -1,7 +1,7 @@
 <template>
     <form @submit.prevent="login" class="auth-form" method="POST">
         <div class="auth-input">
-            <input type="email" name="email" v-model="user.email" placeholder="Email">
+            <input type="email" name="email" v-model="user.email" placeholder="Email" required>
         </div>
         
         <div class="auth-input">
@@ -16,6 +16,9 @@
         </div>
 
         <Button type="submit" fluid buttonClasses="auth-btn">Login</Button>
+        <transition name="fade">
+            <p class="auth-error">{{ error }}</p>
+        </transition>
     </form>
 </template>
 <script>
@@ -29,15 +32,17 @@ export default {
                 email: '',
                 password: '',
                 remember: false
-            }
+            },
+            error: ''
         }
     },
     methods: {
         async login() {
+            this.error = '';
             const [user, errors] = await this.$store.dispatch('profile/login', this.user);
 
-            if(error) {
-                alert(errors[0]);
+            if(errors) {
+                this.error = errors[0];
             }
         }
     }

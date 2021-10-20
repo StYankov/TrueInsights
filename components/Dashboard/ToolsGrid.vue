@@ -1,6 +1,7 @@
 <template>
     <div class="tools-grid">
         <Tool
+            url="/finder"
             title="The Keyword Finder"
             description="Find the most searched terms"
         />

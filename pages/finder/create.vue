@@ -62,9 +62,12 @@ export default {
             e.target.value = '';
         },
         async createReport() {
-            const [response, error] = await this.$store.dispatch('finder/createReport');
+            const [report, error] = await this.$store.dispatch('finder/createReport');
 
-            console.log(response, error);
+            if(report) {
+                this.$router.push(`/finder/edit/${report._id}`);
+            }
+            console.log(report, error);
         }
     },
     computed: {

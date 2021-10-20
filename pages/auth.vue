@@ -6,7 +6,7 @@
                 <button @click="$router.push('/auth/login')" class="auth-tab" :class="{active: currentRoute === 'login'}">
                     Login
                 </button> 
-                <button @click="$router.push('/auth/register')" class="auth-tab" :class="{active: currentRoute === 'register'}">
+                <button @click="disabledRegisters" class="auth-tab" :class="{active: currentRoute === 'register'}">
                     Sign up
                 </button>
             </div>
@@ -26,6 +26,18 @@ export default {
     async asyncData({ route, redirect }) {
         if(route.name === 'auth')
             return redirect('/auth/login');
+    },
+    methods: {
+        disabledRegisters() {
+            // previous value
+            // $router.push('/auth/register')
+
+            this.$swal.fire(
+                'Warning',
+                'The registrations have been temporarily disabled',
+                'warning'
+            );
+        }
     },
     computed: {
         currentRoute() {
