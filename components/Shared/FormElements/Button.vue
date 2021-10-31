@@ -1,9 +1,10 @@
 <template>
     <button 
         class="base-button" 
-        :class="{ 'base-button--small': small, 'base-button--fluid': fluid, [buttonClasses]: true }"
+        :class="{ 'base-button--small': small, 'base-button--fluid': fluid, [buttonClasses]: true, 'base-button--stroke': stroke }"
         :type="type" 
         @click="$emit('click')"
+        :disabled="disabled"
     >
         <slot></slot>
     </button>
@@ -30,6 +31,16 @@ export default {
             type: Boolean,
             required: false,
             default: false
+        },
+        stroke: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
+        disabled: {
+            type: Boolean,
+            required: false,
+            default: false
         }
     }
 }
@@ -46,6 +57,11 @@ export default {
     font-size: 1.15rem;
     cursor: pointer;
     min-width: 250px;
+    transition: 0.2s background ease-out;
+
+    &:disabled {
+        background: #ccc;
+    }
 
     &--small {
         padding: 0.4rem 2.5rem;
@@ -55,6 +71,12 @@ export default {
 
     &--fluid {
         width: 100%;
+    }
+
+    &--stroke {
+        border: 2px solid #CCCCCC;
+        background: transparent;
+        color: #222;
     }
 }
 </style>

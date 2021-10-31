@@ -2,3 +2,32 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.store-section-title {
+    overflow: hidden;
+    text-align: center;
+    color: $menu-dark;
+    text-transform: uppercase;
+
+    &::before,
+    &::after {
+        background-color: #000;
+        content: "";
+        display: inline-block;
+        height: 3px;
+        position: relative;
+        vertical-align: middle;
+        border-radius: 2px;
+        width: 50%;
+    }
+
+    &::before {
+        right: 0.5rem;
+        margin-left: -50%;
+    }
+
+    &::after {
+        left: 0.5em;
+        margin-right: -50%;
+    }
+}

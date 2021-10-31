@@ -5,3 +5,15 @@
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0
 }
+
+.expand-enter-active,
+.expand-leave-active {
+  transition: max-height .5s ease;
+  max-height: 600px;
+}
+
+.expand-enter,
+.expand-leave-to {
+  max-height: 0;
+  overflow: hidden;
+}

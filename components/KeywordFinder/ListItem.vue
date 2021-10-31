@@ -30,7 +30,7 @@ export default {
     },
     computed: {
         url() {
-            return `/finder/edit/${this.report._id}`;
+            return `/finder/view/${this.report._id}`;
         },
         summary() {
             const keywordsCount = this.report.keywords.length;

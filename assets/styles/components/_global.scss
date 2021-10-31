@@ -29,5 +29,49 @@ div#__nuxt,
 }
 
 .page-logo {
+    display: flex;
+    align-items: center;
+    min-height: 140px;
     margin-bottom: 1.5rem;
+}
+
+.page-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section-separator {
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: $dark;
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    margin: 8px 0;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    max-width: 300px;
+
+    &::before {
+        content: '';
+        flex-grow: 1;
+        background: #ddd;
+        height: 1px;
+        font-size: 0;
+        line-height: 0;
+        margin-right: 6px;
+    }
+
+    &::after {
+        content: '';
+        flex-grow: 1;
+        background: #ddd;
+        height: 1px;
+        font-size: 0;
+        line-height: 0;
+        margin-left: 6px;
+    }
 }

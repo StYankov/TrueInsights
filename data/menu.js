@@ -13,17 +13,31 @@ export default [
         subitems: [
             {
                 title: 'New Keyword Report',
-                link: '#',
                 to: '/finder/create'
             },
             {
                 title: 'Saved Reports',
-                link: '/finder',
                 to: '/finder',
             },
             {
                 title: 'Missing Keywords',
-                link: '#'
+                to: '#',
+            }
+        ]
+    },
+    {
+        title: 'Reviews Analyzer',
+        icon: ['fas', 'star'],
+        fontawesome: true,
+        to: '/reviews-analyzer',
+        subitems: [
+            {
+                title: 'Create New Analysis',
+                to: '/reviews-analyzer/create'
+            },
+            {
+                title: 'Saved Reports',
+                to: '/reviews-analyzer'
             }
         ]
     },

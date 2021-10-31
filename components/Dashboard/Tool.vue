@@ -1,7 +1,8 @@
 <template>
     <nuxt-link :to="url" class="tool-link">
         <div class="tool-link__icon">
-            <img src="/images/logo-icon.png" alt="keyword-finder" />
+            <img v-if="icon" :src="icon" />
+            <img v-else src="/images/logo-icon.png" alt="keyword-finder" />
         </div>
         <h4 class="tool-link__title">{{ title }}</h4>
         <p class="tool-link__desc">{{ description }}</p>
@@ -24,6 +25,10 @@ export default {
         description: {
             type: String,
             required: false
+        },
+        icon: {
+            type: String,
+            required: false
         }
     }
 }
@@ -36,6 +41,7 @@ export default {
         background: linear-gradient(180deg, rgba(146,78,154,1) 0%, rgba(210,87,242,1) 50%, rgba(189,53,235,1) 100%);
         text-decoration: none;
         width: 30%;
+        margin-right: 3%;
 
         &__icon {
             position: absolute;

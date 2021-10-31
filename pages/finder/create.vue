@@ -65,7 +65,7 @@ export default {
             const [report, error] = await this.$store.dispatch('finder/createReport');
 
             if(report) {
-                this.$router.push(`/finder/edit/${report._id}`);
+                this.$router.push(`/finder/view/${report._id}`);
             }
             console.log(report, error);
         }
