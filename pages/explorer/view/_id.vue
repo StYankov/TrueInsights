@@ -36,8 +36,12 @@ export default {
         ChartTableView,
         Button
     },
-    async asyncData({ store, params }) {
+    async asyncData({ store, params, redirect }) {
         const [response, error] = await store.dispatch('explorer/getStoreReport', params.id);
+
+        if(error) {
+            return redirect('/finder/explorer');
+        }
     },
     computed: {
         report() {
