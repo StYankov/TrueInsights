@@ -4,6 +4,7 @@
             :type="type" 
             :value="value" 
             :name="name" 
+            :placeholder="placeholder"
             :class="inputClass" 
             @input="$emit('input', $event)"
             @keyup.enter="$emit('enter', $event)"
@@ -38,6 +39,10 @@ export default {
             required: false
         },
         desc: {
+            type: String,
+            required: false
+        },
+        placeholder: {
             type: String,
             required: false
         }

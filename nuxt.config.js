@@ -94,7 +94,8 @@ export default {
       local: {
         token: {
           property: 'token',
-          global: true
+          global: true,
+          maxAge: 0
         },
         user: {
           property: false

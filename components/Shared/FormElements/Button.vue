@@ -1,7 +1,12 @@
 <template>
     <button 
         class="base-button" 
-        :class="{ 'base-button--small': small, 'base-button--fluid': fluid, [buttonClasses]: true, 'base-button--stroke': stroke }"
+        :class="{ 
+            'base-button--small': small, 
+            'base-button--fluid': fluid,
+            'base-button--center': center, 
+            [buttonClasses]: true
+        }"
         :type="type" 
         @click="$emit('click')"
         :disabled="disabled"
@@ -41,6 +46,11 @@ export default {
             type: Boolean,
             required: false,
             default: false
+        },
+        center: {
+            type: Boolean,
+            required: false,
+            default: false
         }
     }
 }
@@ -77,6 +87,10 @@ export default {
         border: 2px solid #CCCCCC;
         background: transparent;
         color: #222;
+    }
+
+    &--center {
+        margin: 0 auto;
     }
 }
 </style>

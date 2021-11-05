@@ -20,8 +20,8 @@ export default [
                 to: '/finder',
             },
             {
-                title: 'Missing Keywords',
-                to: '#',
+                title: 'Keyword Explorer',
+                to: '/finder/explorer',
             }
         ]
     },

@@ -5,30 +5,30 @@
       </div>
       <h3 class="section-title">Keyword Explorer</h3>
 
-      <Input placeholder="Search store..." :value="search" @input="search = $event.target.value" />
+      <Input placeholder="Filter" :value="search" @input="search = $event.target.value" />
 
       <div class="keyword-reports">
-        <ListItem
-            v-for="(report, index) in reports"
-            :key="report.id"
-            :report="report"
+        <ExplorerListItem
+            v-for="(store, index) in stores"
+            :key="store.id"
+            :store="store"
             :index="index"
-        />
+        />  
       </div>
     </div>
 </template>
 <script>
-import ListItem from '@/components/KeywordFinder/ListItem';
+import ExplorerListItem from '@/components/KeywordExplorer/ExplorerListItem';
 
 import Input from '@/components/Shared/FormElements/Input';
 
 export default {
     components: {
-        ListItem,
+        ExplorerListItem,
         Input
     },
     async asyncData({ store }) { 
-        await store.dispatch('finder/getReports');
+        await store.dispatch('explorer/getStores');
     },
     data() {
         return {
@@ -36,10 +36,14 @@ export default {
         }
     },
     computed: {
-        reports() {
-            return this.$store.state.finder.reports;
+        stores() {
+            return this.$store.state.explorer.stores.filter(x => x.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1);
         }
     }
 }
 </script>
-<style lang="scss" src="@/assets/styles/pages/finder.scss"></style>
+<style scoped>
+.keyword-reports {
+    margin-top: 2rem;
+}
+</style>
