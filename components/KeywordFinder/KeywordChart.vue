@@ -1,6 +1,6 @@
 <template>
     <div class="keyword-chart mb-5">
-        <h5>Origin Keyword: {{ keyword }}</h5>
+        <h5 v-if="keyword">Origin Keyword: {{ keyword }}</h5>
         <div>
             <canvas ref="canvas" :style="`width: 100%; height: ${canvasHeight}px`" width="100%"></canvas>
         </div>
