@@ -52,10 +52,7 @@ export default {
             return Object.entries(this.$store.state.explorer.report.phrases).map(x => ({
                 percent: x[1].count,
                 word: x[0]
-            }));
-
-            // return this.$store.state.explorer.report.phrases.entries().map(x => ({ percent: x[1].count, word: x[0] }));
-            return 1;
+            })).slice(0, 30);
         }
     }
 }
