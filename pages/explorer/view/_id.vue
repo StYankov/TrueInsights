@@ -34,15 +34,21 @@ export default {
         ChartTableView,
         Button
     },
-    async asyncData({ store, params, redirect }) {
+    async asyncData({ store, params, redirect, route }) {
         const [response, error] = await store.dispatch('explorer/getStoreReport', params.id);
 
         if(error) {
             return redirect('/finder/explorer');
         }
+
+        return {
+            totalResults: Math.max(route.query.results || 30, 150)
+        }
     },
-    mounted() {
-        this.keywordsList;
+    data() {
+        return {
+            totalResults: 30
+        }
     },
     computed: {
         report() {
@@ -52,7 +58,7 @@ export default {
             return Object.entries(this.$store.state.explorer.report.phrases).map(x => ({
                 percent: x[1].count,
                 word: x[0]
-            })).slice(0, 30);
+            })).slice(0, parseInt(this.totalResults));
         }
     }
 }
