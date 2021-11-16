@@ -55,7 +55,7 @@ export default {
       imports: [
           {
             set: '@fortawesome/free-solid-svg-icons',
-            icons: ['faSearch', 'faChevronDown', 'faFileInvoiceDollar', 'faUsers', 'faNetworkWired',
+            icons: ['faSearch', 'faChevronDown', 'faChevronUp', 'faFileInvoiceDollar', 'faUsers', 'faNetworkWired',
               'faSignOutAlt', 'faHome', 'faChartLine', 'faCog', 'faTrash', 'faStar']
           },
           {

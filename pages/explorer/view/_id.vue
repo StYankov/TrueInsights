@@ -28,7 +28,7 @@
         <ComparisonTable 
             v-if="brandsData.length"
             title="Keyword Origins" 
-            :labels="['','','']"
+            :labels="false"
             :rows="brandsData"
         />
 
@@ -46,7 +46,7 @@ import ChartTableView from "@/components/KeywordExplorer/ChartTableView";
 import Button from "@/components/Shared/FormElements/Button";
 import Input from "@/components/Shared/FormElements/Input";
 import Loader from "@/components/Shared/FormElements/Loader";
-import ComparisonTable from '@/components/Tables/ComparisonTable';
+import ComparisonTable from '@/components/KeywordExplorer/Table';
 
 export default {
   components: {
