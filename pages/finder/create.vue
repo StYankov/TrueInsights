@@ -37,9 +37,12 @@ export default {
         await store.dispatch('finder/getCountries');
         await store.dispatch('finder/getStores');
     },
-    beforeDestroy() {
+    beforeCreate() {
         this.$store.commit('finder/resetFinder');
     },
+    // beforeDestroy() {
+    //     this.$store.commit('finder/resetFinder');
+    // },
     methods: {
         updateProperty(key, value) {
             this.$store.commit('finder/setFinderProperty', { key, value });
@@ -66,8 +69,12 @@ export default {
 
             if(report) {
                 this.$router.push(`/finder/view/${report._id}`);
+                this.$swal.fire(
+                    '',
+                    'Your request is scheduled for processing',
+                    'info'
+                );
             }
-            console.log(report, error);
         }
     },
     computed: {
