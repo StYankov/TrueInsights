@@ -22,6 +22,7 @@
       <Button @click="reload" center>Reload</Button>
     </div>
 
+
     <template v-for="(store, storeName) in stores">
       <div class="store-section" :key="storeName">
         <h4 class="store-section-title">{{ storeName }}</h4>
@@ -33,6 +34,11 @@
         />
       </div>
     </template>
+
+
+    <div class="text-center mt-4">
+      <Button @click="$router.back()" center>Reload</Button>
+    </div>
   </div>
 </template>
 <script>
