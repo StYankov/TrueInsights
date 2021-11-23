@@ -36,8 +36,8 @@
     </template>
 
 
-    <div class="text-center mt-4">
-      <Button @click="$router.back()" center>Reload</Button>
+    <div class="text-center mt-5">
+      <Button @click="$router.back()" center>Back</Button>
     </div>
   </div>
 </template>
