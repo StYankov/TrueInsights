@@ -9,7 +9,10 @@
 @import '/node_modules/bootstrap/scss/buttons';
 
 @import '/node_modules/bootstrap/scss/utilities/spacing';
+@import '/node_modules/bootstrap/scss/utilities/display';
+@import '/node_modules/bootstrap/scss/utilities/flex';
 @import '/node_modules/bootstrap/scss/tables';
+@import '/node_modules/bootstrap/scss/grid';
 
 /**
  * Shared Components
@@ -17,6 +20,7 @@
 @import './components/shared/header';
 @import './components/shared/sidebar';
 @import './components/shared/swal2';
+@import './components/shared/chart';
 
 /**
  * Global Styles
@@ -39,4 +43,8 @@ body {
 
 * {
     font-family: 'Open Sans', sans-serif;
+}
+
+.container-fluid {
+    padding: 0;
 }

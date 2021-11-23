@@ -57,9 +57,6 @@ export default {
     await store.dispatch("finder/getStores");
     await store.dispatch("finder/getReport", params.id);
   },
-  mounted() {
-    console.log(this.finder);
-  },
   methods: {
     reload() {
       window.location.reload();

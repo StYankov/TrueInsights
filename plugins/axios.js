@@ -3,7 +3,7 @@ export default function({ $axios }) {
         const data = error.response && error.response.data;
 
         if(!data || !data.errors) {
-            error.errors = ['Неочаквана грешка. Моля опитайте по-късно'];
+            error.errors = ['Unepected Error. Please try again later'];
 
             return Promise.reject(error);
         }

@@ -1,22 +1,18 @@
 <template>
     <div class="base-input" :class="containerClass">
-        <input 
-            :type="type" 
-            :value="value" 
-            :name="name" 
-            :placeholder="placeholder"
-            :class="inputClass" 
-            @input="$emit('input', $event)"
-            @keyup.enter="$emit('enter', $event)"
-            @blur="$emit('blur', $event)"
-        >
+        <label :for="name">{{ placeholder }}</label> 
+        <VueSelect :id="name" :name="name" :class="inputClass" @change="$emit('change')" :value="value" :options="options" />
         <p v-if="desc" class="base-input__desc">
             {{ desc }}
         </p>
     </div>
 </template>
 <script>
+import { VueSelect } from 'vue-select';
+import 'vue-select/dist/vue-select.css';
+
 export default {
+    components: { VueSelect },
     props: {
         containerClass: {
             type: String,
@@ -25,11 +21,6 @@ export default {
         inputClass: {
             type: String,
             required: false
-        },
-        type: {
-            type: String,
-            required: false,
-            default: 'text'
         },
         name: {
             type: String,
@@ -46,6 +37,11 @@ export default {
         placeholder: {
             type: String,
             required: false
+        },
+        options: {
+            type: Array,
+            required: false,
+            default: () => []
         }
     }
 }
@@ -54,14 +50,19 @@ export default {
 .base-input {
     width: 100%;
 
-    input {
-        width: 100%;
+    label {
+        display: block;
+        font-weight: 600;
+    }
+
+    select {
         border-radius: 2px;
-        border: 1px solid $dark;
-        padding: 0.2rem;
+        margin-bottom: 0.5rem;
         color: $heading;
         font-size: 1.25rem;
-        margin-bottom: 0.5rem;
+        padding: 0.2rem;
+        border: 1px solid $dark;
+        min-width: 150px;
     }
 
     &__desc {

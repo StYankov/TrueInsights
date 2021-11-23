@@ -14,8 +14,10 @@ export const actions = {
 
             return [response.data, null];
         } catch(e) {
-            console.log(e);
             return [null, e.errors];
         }
+    },
+    async logout() {
+        await this.$auth.logout();
     }
 }

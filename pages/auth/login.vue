@@ -42,7 +42,7 @@ export default {
             const [user, errors] = await this.$store.dispatch('profile/login', this.user);
 
             if(errors) {
-                this.error = errors[0];
+                this.error = 'Credentials do not match';
             }
         }
     }

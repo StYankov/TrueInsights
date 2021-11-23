@@ -1,7 +1,7 @@
 <template>
     <div class="header__account">
         <button class="account-btn btn" @click.stop="toggle">
-            <img class="account-avatar" src="http://via.placeholder.com/50x50" />
+            <img class="account-avatar" src="/images/logo-icon.png" />
             <fa :icon="['fas', 'chevron-down']" />
         </button>
         <div 
@@ -10,9 +10,9 @@
             class="account-modal animate__animated animate__backInRight" 
             :class="{'animate__backOutRight': willExit}" 
         >
-            <img class="account-modal__avatar" src="http://via.placeholder.com/50x50" alt="user-avatar" />
-            <h4 class="account-modal__username">Stoil Y</h4>
-            <p class="account-modal__email">office@newavedigital.com</p>
+            <img class="account-modal__avatar" src="/images/logo-icon.png" alt="user-avatar" />
+            <h4 class="account-modal__username">{{ user.name }}</h4>
+            <p class="account-modal__email">{{ user.email }}</p>
             <a class="account-modal__settings">Settings</a>
 
             <div class="account-modal__nav">
@@ -34,7 +34,7 @@
                     </span>
                     Connections
                 </a>
-                <a href="#" class="account-modal__nav-link">
+                <a @click="logout" href="#" class="account-modal__nav-link">
                     <span class="link-icon">
                         <fa :icon="['fas', 'sign-out-alt']" />
                     </span>
@@ -81,6 +81,14 @@ export default {
                 this.willExit = false;
                 this._timeout = null;
             }, 300);
+        },
+        async logout() {
+            await this.$store.dispatch('profile/logout');
+        }
+    },
+    computed: {
+        user() {
+            return this.$auth.user;
         }
     }
 }

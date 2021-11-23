@@ -88,7 +88,8 @@ export default {
   auth: {
     redirect: {
       home: '/',
-      login: '/auth/login'
+      login: '/auth/login',
+      logout: '/auth/login'
     },
     strategies: {
       local: {
@@ -103,7 +104,7 @@ export default {
         endpoints: {
           login: { url: '/auth/login', method: 'post', propertyName: 'token' },
           user: { url: '/user', method: 'get', property: false },
-          logout: { url: '/auth/logout', method: 'get' }
+          logout: { url: '/auth/logout', method: 'post' }
         }
       }
     }

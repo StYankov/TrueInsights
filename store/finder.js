@@ -43,7 +43,7 @@ export const mutations = {
 export const actions = {
     async getCountries({ commit }) {
         try {
-            const response = await this.$axios.get('countries');
+            const response = await this.$axios.get('countries?hide_empty=1');
 
             commit('setProperty', { key: 'countries', value: response.data });
 
