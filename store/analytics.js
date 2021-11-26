@@ -14,7 +14,7 @@ export const mutations = {
 
 export const actions = {
     async fetchStores({ commit, state }) {
-        if(state.stores) return;
+        if(state.stores) return [true, null];
 
         try {
             const response = await this.$axios.get('/analytics');
@@ -29,7 +29,7 @@ export const actions = {
     },
     async fetchAnalyticsUrl({ commit, state }, storeId) {
         if(state.urls[storeId])
-            return;
+            return [true, false];
 
         try {
             const response = await this.$axios.get('/analytics/' + storeId);

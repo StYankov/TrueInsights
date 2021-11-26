@@ -5,7 +5,6 @@
 export default {
     async asyncData({ store, params, redirect }) {
         const [response, error] = await store.dispatch('analytics/fetchAnalyticsUrl', params.store_id);
-
         if(error) {
             return redirect('/analytics');
         }
