@@ -45,24 +45,30 @@ export default [
         title: 'Marketplace Analysis',
         icon: ['fas', 'chart-line'],
         fontawesome: true,
-        to: '#',
-        subitems: [
-            {
-                title: 'Perfect KPI Dashboard',
-                link: '#'
-            },
-            {
-                title: 'Global Brand Content',
-                link: '#'
-            },
-            {
-                title: 'Share of Search',
-                link: '#'
-            },
-            {
-                title: 'Portfolio Abailability',
-                link: '#'
-            }
-        ]
+        to: '/analytics'
     }
+    // {
+    //     title: 'Marketplace Analysis',
+    //     icon: ['fas', 'chart-line'],
+    //     fontawesome: true,
+    //     to: '#',
+    //     subitems: [
+    //         {
+    //             title: 'Perfect KPI Dashboard',
+    //             link: '#'
+    //         },
+    //         {
+    //             title: 'Global Brand Content',
+    //             link: '#'
+    //         },
+    //         {
+    //             title: 'Share of Search',
+    //             link: '#'
+    //         },
+    //         {
+    //             title: 'Portfolio Abailability',
+    //             link: '#'
+    //         }
+    //     ]
+    // }
 ];
