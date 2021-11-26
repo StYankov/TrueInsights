@@ -30,6 +30,10 @@ export default {
             required: true,
             type: [String, Array]
         },
+        route: {
+            required: true,
+            type: String
+        },
         title: {
             required: true,
             type: String
@@ -43,11 +47,11 @@ export default {
             required: false,
             type: Array,
             default: () => []
-        },
-        active: {
-            required: false,
-            type: Boolean,
-            default: false
+        }
+    },
+    computed: {
+        active() {
+            return this.route === this.$route.name.split('-')[0];
         }
     }
 }

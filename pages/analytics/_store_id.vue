@@ -1,5 +1,6 @@
 <template>
-    <iframe :src="storeUrl"></iframe>
+<hr>
+    <!-- <iframe :src="storeUrl"></iframe> -->
 </template>
 <script>
 export default {

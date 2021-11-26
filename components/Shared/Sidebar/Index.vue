@@ -9,8 +9,8 @@
             <MenuItem 
                 v-for="(menuItem, i) in menus" 
                 :key="'menu-' + i"
-                :active="i === 0"
                 :title="menuItem.title"
+                :route="menuItem.route"
                 :icon="menuItem.icon"
                 :fontawesome="menuItem.fontawesome || false"
                 :link="menuItem.to"

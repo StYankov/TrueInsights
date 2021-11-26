@@ -2,6 +2,7 @@ export default [
     {
         title: 'Home',
         icon: ['fas', 'home'],
+        route: 'index',
         fontawesome: true,
         to: '/'
 
@@ -9,6 +10,7 @@ export default [
     {
         title: 'The Keyword Finder',
         icon: '/images/logo-icon.png',
+        route: 'finder',
         to: '/finder',
         subitems: [
             {
@@ -29,6 +31,7 @@ export default [
         title: 'Reviews Analyzer',
         icon: ['fas', 'star'],
         fontawesome: true,
+        route: 'reviews-analyzer',
         to: '/reviews-analyzer',
         subitems: [
             {
@@ -45,6 +48,7 @@ export default [
         title: 'Marketplace Analysis',
         icon: ['fas', 'chart-line'],
         fontawesome: true,
+        route: 'analytics',
         to: '/analytics'
     }
     // {
