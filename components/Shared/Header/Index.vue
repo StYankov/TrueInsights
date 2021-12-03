@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <button class="hamburger hamburger--spin header__hamburger" type="button" @click="toggle">
+        <button class="hamburger hamburger--spin header__hamburger d-lg-none" type="button" @click="toggle">
             <span class="hamburger-box">
                 <span class="hamburger-inner"></span>
             </span>
