@@ -19,7 +19,13 @@
         </div>
 
         <div class="retailers-list">
-            <div @click="currentCountry = country" v-for="country in countries" :key="country.id" class="retailer-block">
+            <div 
+                @click="currentCountry = country" 
+                v-for="country in countries" 
+                :key="country.id" 
+                class="retailer-block"
+                :class="{selected: (currentCountry && currentCountry.id === country.id)}"
+            >
                 {{ country.name }}
                 <span class="arrow-down"></span>
             </div>
@@ -40,6 +46,11 @@ export default {
     methods: {
         toggleStore(storeId) {
             this.$store.commit('finder/toggleStore', storeId);
+        }
+    },
+    mounted() {
+        if(this.countries.length) {
+            this.currentCountry = this.countries[0];
         }
     },
     computed: {
@@ -65,36 +76,52 @@ export default {
 }
 
 .retailers-current {
-    width: 25%;
+    width: 45%;
+
+    @include media-breakpoint-up(lg) {
+        width: 25%;
+    }
 }
 
 .retailers-list {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    width: 75%;
-    margin-left: 1.5%;
+    width: 60%;
+    margin-left: 3%;
 
-    .retailer-block {
-        width: 31%;
+    @include media-breakpoint-up(lg) {
+        flex-direction: row;
+        width: 75%;
+        margin-left: 1.5%;
     }
 }
 
 .retailer-block {
+    width: 100%;
     border: 1px solid $dark;
+    padding: 0.5rem;
     border-radius: 5px;
-    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1rem;
     margin-right: 1%;
+    margin-bottom: 0.35rem;
 
+    font-size: 0.875rem;
     font-weight: 600;
     color: $heading;
     cursor: pointer;
+    transition: 0.3s ease-out;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1rem;
+        width: 31%;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
 
     .arrow-down {
         width: 0; 
@@ -107,6 +134,7 @@ export default {
 
     &.selected {
         background-color: $purple;
+        color: #fff;
         
         .arrow-down {
             color: #fff;

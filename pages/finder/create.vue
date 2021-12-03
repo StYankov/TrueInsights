@@ -9,9 +9,9 @@
 
       <!-- <h3 class="section-title heading-with-button">Enter Seed Keywords* or <Button buttonClasses="ml-4" small>UPLOAD</Button></h3> -->
       <h3 class="section-title heading-with-button">Enter Seed Keywords*</h3>
-      <div class="page-head align-items-start">
-        <Input containerClass="mb-1" @enter="addKeyword" @blur="onBlur" desc="*Enter 1 keyword or more seperated by comma" />
-        <Button small @click="manualAdd" buttonClasses="ml-4">Add</Button>
+      <div class="page-head align-items-lg-start">
+        <Input ref="input" containerClass="mb-1" @enter="addKeyword" @blur="onBlur" desc="*Enter 1 keyword or more seperated by comma" />
+        <Button small buttonClasses="ml-lg-4">Add</Button>
       </div>
       <KeywordsBag />
 

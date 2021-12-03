@@ -25,5 +25,13 @@ export default {
 <style scoped>
 .tools-grid {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 991px) {
+    .tools-grid {
+        flex-direction: row;
+    }
 }
 </style>

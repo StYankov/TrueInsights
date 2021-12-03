@@ -45,11 +45,14 @@ export default {
     background-color: #fff;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
     text-decoration: none;
-
-    width: 31.5%;
-    margin-right: 1.6%;
+    width: 100%;
     margin-bottom: 2rem;
     overflow: hidden;
+
+    @include media-breakpoint-up(lg) {
+        width: 31.5%;
+        margin-right: 1.6%;
+    }
 
     &__name {
         font-weight: 800;

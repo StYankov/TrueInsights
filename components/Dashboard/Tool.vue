@@ -40,8 +40,14 @@ export default {
         padding: 2rem 0.5rem 0.5rem 3rem;
         background: linear-gradient(180deg, rgba(146,78,154,1) 0%, rgba(210,87,242,1) 50%, rgba(189,53,235,1) 100%);
         text-decoration: none;
-        width: 30%;
-        margin-right: 3%;
+        width: 100%;
+        margin-bottom: 1rem;
+
+        @include media-breakpoint-up(lg) {
+            width: 30%;
+            margin-right: 3%;
+            margin-bottom: 0;
+        }
 
         &__icon {
             position: absolute;

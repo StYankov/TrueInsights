@@ -1,6 +1,11 @@
 .input-select {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-between;
     margin-bottom: 1.25rem;
+
+    @include media-breakpoint-up(lg) {
+        flex-direction: row;
+    }
 }

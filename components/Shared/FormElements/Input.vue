@@ -1,6 +1,7 @@
 <template>
     <div class="base-input" :class="containerClass">
         <input 
+            ref="input"
             :type="type" 
             :value="value" 
             :name="name" 

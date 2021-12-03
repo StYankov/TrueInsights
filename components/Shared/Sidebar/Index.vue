@@ -3,6 +3,9 @@
         <div class="sidebar__header">
             <img class="sidebar__logo-small" src="/images/logo-icon.png" />
             <p class="sidebar__logo-text animate__animated">True Insights</p>
+            <button class="sidebar__close" @click="closeSidebar">
+                <fa :icon="['fas', 'times']" />
+            </button>
         </div>
 
         <div class="sidebar__content">
@@ -30,6 +33,11 @@ export default {
     data() {
         return {
             menus: menuData
+        }
+    },
+    methods: {
+        closeSidebar() {
+            document.body.classList.toggle('sidebar-open');
         }
     }
 }

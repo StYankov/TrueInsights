@@ -20,6 +20,11 @@ export default {
   components: {
     Sidebar,
     Header
-  }  
+  },
+  watch: {
+    $route() {
+      document.body.classList.remove('sidebar-open');
+    }
+  } 
 }
 </script>
