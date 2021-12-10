@@ -3,16 +3,13 @@
 </template>
 <script>
 export default {
-    data() {
-        return {
-            storeUrl: ''
-        }
+    async asyncData({ store, params }) {
+        await store.dispatch('analytics/fetchAnalyticsUrl', params.store_id);
     },
-    mounted() {
-        const bearerToken = window.localStorage.getItem('auth._token.local') || '';
-        const authToken = bearerToken.replace('Bearer ', '');
-
-        this.storeUrl = `${process.env.baseURL}/api/v1/analytics/${this.$route.params.store_id}?auth=${authToken}`;
+    computed: {
+        storeUrl() {
+            return this.$store.state.analytics.urls[this.$route.params.store_id]
+        }
     }
 }
 </script>
