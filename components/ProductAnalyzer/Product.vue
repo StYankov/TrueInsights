@@ -1,0 +1,49 @@
+<template>
+    <div class="product-box row">
+        <div class="col-md-4">
+            <img :src="image" />
+        </div>
+        <div class="col-md-7">
+            <p class="product-category mb-4">{{ categoryChain }}</p>
+            <h2 class="mb-4">{{ product.title }}</h2>
+
+            <h5>Description</h5>
+
+            <p>{{ product.description }}</p>
+        </div>
+    </div>
+</template>
+<script>
+export default {
+    props: {
+        product: {
+            type: Object,
+            required: true,
+            default: () => {}
+        }
+    },
+    computed: {
+        image() {
+            return this.product.images.length > 0 ? this.product.images[0] : ''
+        },
+        categoryChain() {
+            return this.product.categories.join(' > ')
+        }
+    }
+}
+</script>
+<style lang="scss" scoped>
+    .product-box {
+        margin-bottom: 2rem;
+        img {
+            width: 200px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product-category {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+    }
+</style>

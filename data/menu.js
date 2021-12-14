@@ -50,6 +50,13 @@ export default [
         fontawesome: true,
         route: 'analytics',
         to: '/analytics'
+    },
+    {
+        title: 'Product Analyzer',
+        icon: ['fas', 'signal'],
+        fontawesome: true,
+        route: 'product-analyzer',
+        to: '/product-analyzer'
     }
     // {
     //     title: 'Marketplace Analysis',
