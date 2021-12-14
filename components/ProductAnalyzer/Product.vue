@@ -9,7 +9,9 @@
 
             <h5>Description</h5>
 
-            <p>{{ product.description }}</p>
+            <p class="mb-1" v-if="product.description.length > 200 && showMore === false">{{ product.description.slice(0, 200) }}</p>
+            <a v-if="product.description.length > 200 && showMore === false" href="#" @click.prevent="showMore = true">Show more</a>
+            <p v-if="showMore" v-html="product.description"></p>
         </div>
     </div>
 </template>
@@ -20,6 +22,11 @@ export default {
             type: Object,
             required: true,
             default: () => {}
+        }
+    },
+    data() {
+        return {
+            showMore: false
         }
     },
     computed: {
