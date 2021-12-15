@@ -23,7 +23,7 @@
       <template v-else>
         <div class="col">
           <Product v-if="product" :product="product" />
-          <Stats v-if="statistics" :stats="statistics" />
+          <Stats v-if="statistics" :stats="statistics" :product="product" />
         </div>
       </template>
     </div>
