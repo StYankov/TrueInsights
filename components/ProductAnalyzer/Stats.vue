@@ -40,6 +40,10 @@
                         <Loader />
                     </div>
                     <span class="keyword" v-else v-for="keyword in missingKeywords" :key="keyword" v-html="keyword"></span>
+
+                    <template v-if="missingKeywords.length === 0 && missingKeywordsLoading === false">
+                        No missing keywords
+                    </template>
                 </td>
                 <td>
                     {{ getMissingKeywordsAction() }}
@@ -111,7 +115,7 @@ export default {
             else return 'Reduce number of images';
         },
         getMissingKeywordsAction() {
-            if(this.missingKeywords <= 1)
+            if(this.missingKeywords.length <= 1)
                 return 'No action needed';
             
             return 'Consider adding these keywords to the product\'s description';
