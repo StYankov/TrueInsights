@@ -33,8 +33,39 @@
                 <td>{{ getStatus(stats.images.status) }}</td>
                 <td>{{ getImagesAction(stats.images.status, stats.images.current, stats.images.average) }}</td>
             </tr>
+
+            <tr>
+                <td>Rating</td>
+                <td>{{ stats.rating.average }}</td>
+                <td>{{ stats.rating.current }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Reviews</td>
+                <td>{{ stats.reviews.average }}</td>
+                <td>{{ stats.reviews.current }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr v-if="stats.image" :class="getRowClass(stats.image.white_background ? 0 : 2)">
+                <td>Main Image Has White Background</td>
+                <td colspan="2">{{ stats.image.white_background ? 'Yes' : 'No' }}</td>
+                <td>{{ stats.image.white_background ? 'Excellent' : 'Needs Improvement' }}</td>
+                <td>{{ stats.image.white_background ? 'No action needed' : 'Main image is not on a white background' }}</td>
+            </tr>
+
+            <tr v-if="stats.image" :class="getRowClass(imageSizeOk ? 0 : 2)">
+                <td>Image Dimensions At least 300x300</td>
+                <td colspan="2">{{ imageSizeResponse }}</td>
+                <td>{{ imageSizeOk ? 'Excellent' : 'Needs Improvement' }}</td>
+                <td>{{ imageSizeOk ? 'No action needed' : 'Upload a higher resolution image ' }}</td>
+            </tr>
+
             <tr v-if="!errors">
-                <td>Missing Keywords</td>
+                <td>Suggested keywords</td>
                 <td colspan="3">
                     <div v-if="missingKeywordsLoading" class="loading-container">
                         <Loader />
@@ -133,6 +164,17 @@ export default {
                 default:
                     return '';
             }
+        }
+    },
+    computed: {
+        imageSizeOk() {
+            return this.stats.image && this.stats.image.width > 300 && this.stats.image.height > 300;
+        },
+        imageSizeResponse() {
+            if(this.imageSizeOk)
+                return 'Pass';
+            
+            return `Fail - ${this.stats.image.width}x${this.stats.image.height}`;
         }
     }
 }
