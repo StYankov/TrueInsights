@@ -10,37 +10,43 @@
                             <th>Asset</th>
                             <th>Average</th>
                             <th>Max</th>
+                            <th>Current Product</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Title</td>
-                            <td>{{ retailer.title.avg }}</td>
-                            <td>{{ retailer.title.max }}</td>
+                            <td>{{ retailer.title.avg }} <span class="unit">characters</span></td>
+                            <td>{{ retailer.title.max }} <span class="unit">characters</span></td>
+                            <td>{{ product.title.current }} <span class="unit">characters</span></td>
                         </tr>
 
                         <tr>
                             <td>Description</td>
-                            <td>{{ retailer.description.avg }}</td>
-                            <td>{{ retailer.description.max }}</td>
+                            <td>{{ retailer.description.avg }} <span class="unit">characters</span></td>
+                            <td>{{ retailer.description.max }} <span class="unit">characters</span></td>
+                            <td>{{ product.description.current }} <span class="unit">characters</span></td>
                         </tr>
 
                         <tr>
                             <td>Image Count</td>
                             <td>{{ retailer.images.avg }}</td>
                             <td>{{ retailer.images.max }}</td>
+                            <td>{{ product.images.current }}</td>
                         </tr>
 
                         <tr>
                             <td>Rating</td>
                             <td>{{ retailer.rating.avg }}</td>
                             <td>{{ retailer.rating.max }}</td>
+                            <td>{{ product.rating.current }}</td>
                         </tr>
 
                         <tr>
                             <td>Reviews</td>
                             <td>{{ retailer.reviews.avg }}</td>
                             <td>{{ retailer.reviews.max }}</td>
+                            <td>{{ product.reviews.current }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -54,7 +60,7 @@ import Button from '@/components/Shared/FormElements/Button';
 
 export default {
     components: { Button },
-    props: ['retailer'],
+    props: ['retailer', 'product'],
     data() {
         return {
             show: false
@@ -93,5 +99,10 @@ export default {
 .slide-enter, .slide-leave-to {
    overflow: hidden;
    max-height: 0;
+}
+
+.unit {
+    font-size: 0.75rem;
+    font-weight: 600;
 }
 </style>

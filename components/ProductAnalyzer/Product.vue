@@ -10,8 +10,9 @@
             <h5>Description</h5>
 
             <p class="mb-1" v-if="product.description.length > 200 && showMore === false">{{ product.description.slice(0, 200) }}</p>
-            <a v-if="product.description.length > 200 && showMore === false" href="#" @click.prevent="showMore = true">Show more</a>
-            <p v-if="showMore" v-html="product.description"></p>
+            <a class="read-more" v-if="product.description.length > 200 && showMore === false" href="#" @click.prevent="showMore = true">Show more</a>
+            <p v-if="showMore" class="mb-2" v-html="product.description"></p>
+            <a class="mb-1 read-more" href="#" v-if="product.description.length > 200 && showMore" @click.prevent="showMore = false">Show less</a>
         </div>
     </div>
 </template>
@@ -52,5 +53,9 @@ export default {
             font-size: 0.85rem;
             font-weight: 600;
         }
+    }
+
+    .read-more {
+        text-decoration: none;
     }
 </style>

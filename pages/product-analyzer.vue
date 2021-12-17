@@ -24,7 +24,7 @@
         <div class="col">
           <Product v-if="product" :product="product" />
           <Stats v-if="statistics" :stats="statistics" :product="product" />
-          <RetailerAvgMax v-if="retailer" :retailer="retailer" />
+          <RetailerAvgMax v-if="retailer" :retailer="retailer" :product="statistics" />
           <Sponsored v-if="product && product.brand && product.category" :product="product" />
         </div>
       </template>
