@@ -24,6 +24,8 @@
         <div class="col">
           <Product v-if="product" :product="product" />
           <Stats v-if="statistics" :stats="statistics" :product="product" />
+          <RetailerAvgMax v-if="retailer" :retailer="retailer" />
+          <Sponsored v-if="product && product.brand && product.category" :product="product" />
         </div>
       </template>
     </div>
@@ -36,6 +38,8 @@ import Loading from "@/components/Shared/FormElements/Loader";
 
 import Product from "@/components/ProductAnalyzer/Product";
 import Stats from "@/components/ProductAnalyzer/Stats";
+import Sponsored from "@/components/ProductAnalyzer/Sponsored";
+import RetailerAvgMax from "@/components/ProductAnalyzer/RetailerAvgMax";
 
 export default {
   components: {
@@ -44,12 +48,15 @@ export default {
     Product,
     Loading,
     Stats,
+    Sponsored,
+    RetailerAvgMax
   },
   data() {
     return {
       url: "",
       product: null,
       statistics: null,
+      retailer: null,
       loading: false,
       erorr: false,
     };
@@ -68,6 +75,7 @@ export default {
 
         this.product = response.data.product;
         this.statistics = response.data.statistics;
+        this.retailer = response.data.retailer;
       } catch (err) {
         this.error = true;
         this.$swal.fire(
