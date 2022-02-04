@@ -32,7 +32,8 @@ export default {
     },
     computed: {
         image() {
-            return this.product.images.length > 0 ? this.product.images[0] : ''
+            // return this.product.images.length > 0 ? this.product.images[0] : ''
+            return this.product.thumb_url;
         },
         categoryChain() {
             return this.product.categories.join(' > ')

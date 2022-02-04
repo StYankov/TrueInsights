@@ -25,7 +25,11 @@
           <Product v-if="product" :product="product" />
           <Stats v-if="statistics" :stats="statistics" :product="product" />
           <RetailerAvgMax v-if="retailer" :retailer="retailer" :product="statistics" />
-          <Sponsored v-if="product && product.brand && product.category" :product="product" />
+          <Sponsored 
+            v-if="product && sponsored" 
+            :product="product" 
+            :sponsored="sponsored"
+          />
         </div>
       </template>
     </div>
@@ -56,6 +60,7 @@ export default {
       url: "",
       product: null,
       statistics: null,
+      sponsored: null,
       retailer: null,
       loading: false,
       erorr: false,
@@ -75,7 +80,7 @@ export default {
 
         this.product = response.data.product;
         this.statistics = response.data.statistics;
-        this.retailer = response.data.retailer;
+        this.sponsored  = response.data.sponsored;
       } catch (err) {
         this.error = true;
         this.$swal.fire(
