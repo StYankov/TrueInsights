@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <td>Asset</td>
-                <td>Category Average</td>
+                <td>Retailer Average</td>
                 <td>Current Product</td>
                 <td>Status</td>
                 <td>Action</td>
