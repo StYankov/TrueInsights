@@ -20,17 +20,21 @@
           This may take a while
         </div>
       </template>
-      <template v-else>
+
+      <template v-if="scan">
         <div class="col">
-          <Product v-if="product" :product="product" />
-          <Stats v-if="statistics" :stats="statistics" :product="product" />
-          <RetailerAvgMax v-if="retailer" :retailer="retailer" :product="statistics" />
+          <Product v-if="scan.product" :product="scan.product" />
+          <Stats v-if="scan.statistics" :scan="scan" :stats="scan.statistics" :product="scan.product" />
           <Sponsored 
-            v-if="product && sponsored" 
-            :product="product" 
-            :sponsored="sponsored"
+            v-if="scan" 
+            :product="scan.product" 
+            :sponsored="scan.sponsored"
           />
         </div>
+      </template>
+
+      <template v-if="error">
+        <h3 class="text-center">{{ error }}</h3>
       </template>
     </div>
   </div>
@@ -43,7 +47,6 @@ import Loading from "@/components/Shared/FormElements/Loader";
 import Product from "@/components/ProductAnalyzer/Product";
 import Stats from "@/components/ProductAnalyzer/Stats";
 import Sponsored from "@/components/ProductAnalyzer/Sponsored";
-import RetailerAvgMax from "@/components/ProductAnalyzer/RetailerAvgMax";
 
 export default {
   components: {
@@ -52,18 +55,17 @@ export default {
     Product,
     Loading,
     Stats,
-    Sponsored,
-    RetailerAvgMax
+    Sponsored
   },
   data() {
     return {
+      loading: false,
+      error: false,
+      scan: null,
       url: "",
       product: null,
       statistics: null,
-      sponsored: null,
-      retailer: null,
-      loading: false,
-      erorr: false,
+      sponsored: null
     };
   },
   methods: {
@@ -74,9 +76,13 @@ export default {
       this.loading = true;
 
       try {
-        const response = await this.$axios.post("/product-analyzer", {
-          url: this.url,
-        });
+        const response = await this.$axios.post("/product-analyzer", { url: this.url });
+        this.scan = response.data;
+
+        if(!this.scan) {
+          this.error = 'We were unable to fetch details about the product. The store is too busy now';
+          return;
+        }
 
         this.product = response.data.product;
         this.statistics = response.data.statistics;

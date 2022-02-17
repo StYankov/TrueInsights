@@ -56,7 +56,13 @@ export default [
         icon: ['fas', 'signal'],
         fontawesome: true,
         route: 'product-analyzer',
-        to: '/product-analyzer'
+        to: '/product-analyzer',
+        subitems: [
+            {
+                title: 'History',
+                to: '/analyzer/history'
+            }
+        ]
     }
     // {
     //     title: 'Marketplace Analysis',

@@ -1,8 +1,7 @@
 <template>
 <div class="sponsored-terms">
     <h4 class="mb-3">Sponsored Search Terms by Brand in {{ product.category }}</h4>
-    <Loader v-if="loading" />
-    <template v-else>
+    <template>
         <table class="table">
             <thead>
                 <th>Brand</th>
@@ -26,39 +25,9 @@
 </div>
 </template>
 <script>
-import Loader from '@/components/Shared/FormElements/Loader';
 
 export default {
-    components: { Loader },
-    props: ['product', 'sponsored'],
-    data() {
-        return {
-            sponsored_terms: [],
-            sponsored_by_current_brand: [],
-            not_sponsored_by_current_brand: [],
-            grouped_by_brands: [],
-            loading: false
-        }
-    },
-    mounted() {
-        console.log(this.sponsored);
-    }
-    // mounted() {
-    //     // this.getSponsoredTerms();
-    // },
-    // methods: {
-    //     async getSponsoredTerms() {
-    //         const response = await this.$axios.post('sponsored-terms', {
-    //             'brand': this.product.brand,
-    //             'category': this.product.category
-    //         });
-
-    //         this.sponsored_terms = response.data.sponsored_terms;
-    //         this.sponsored_by_current_brand = response.data.sponsored_by_current_brand;
-    //         this.grouped_by_brands = response.data.sponsored_by_brand;
-    //         this.not_sponsored_by_current_brand = response.data.not_sponsored_by_brand;
-    //     }
-    // }
+    props: ['product', 'sponsored']
 }
 </script>
 <style scoped>

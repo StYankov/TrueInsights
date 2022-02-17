@@ -64,53 +64,36 @@
                 <td>{{ imageSizeOk ? 'No action needed' : 'Upload a higher resolution image ' }}</td>
             </tr>
 
-            <tr v-if="!errors">
-                <td>Suggested keywords</td>
-                <td colspan="3">
-                    <div v-if="missingKeywordsLoading" class="loading-container">
-                        <Loader />
-                    </div>
-                    <span class="keyword" v-else v-for="keyword in missingKeywords" :key="keyword" v-html="keyword"></span>
-
-                    <template v-if="missingKeywords.length === 0 && missingKeywordsLoading === false">
-                        No missing keywords
-                    </template>
-                </td>
-                <td>
-                    {{ getMissingKeywordsAction() }}
-                </td>
-            </tr>
+            <SuggestedKeywords :loading="loading" :missingKeywords="missingKeywords" />
         </tbody>
     </table>
 </template>
 <script>
 import Loader from '@/components/Shared/FormElements/Loader';
+import SuggestedKeywords from '@/components/ProductAnalyzer/TableRows/SuggestedKeywords';
 
 export default {
-    components: { Loader },
-    props: ['stats', 'product'],
+    components: { Loader, SuggestedKeywords },
+    props: ['scan'],
     data() {
         return {
-            missingKeywordsLoading: true,
+            loading: false,
             errors: false,
-            missingKeywords: []
+            missingKeywords: this.scan.missing_keywords || []
         }
     },
     mounted() {
-        this.loadMissingKeywords()
+        if(!this.scan.missing_keywords)
+            this.loadMissingKeywords();
     },
     methods: {
         async loadMissingKeywords() {
-            this.missingKeywordsLoading = true;
+            this.loading = true;
             try {
-                const response = await this.$axios.post('missing-keywords', {
-                    url: this.product.category_url,
-                    product_id: this.product.id,
-                    description: this.product.description
-                });
+                const response = await this.$axios.post('missing-keywords', { scan_id: this.scan._id });
 
                 this.missingKeywords = response.data;
-                this.missingKeywordsLoading = false;
+                this.loading = false;
             } catch(err) {
                 this.errors = true;
             }
@@ -145,12 +128,6 @@ export default {
                 return 'Add more images';
             else return 'Reduce number of images';
         },
-        getMissingKeywordsAction() {
-            if(this.missingKeywords.length <= 1)
-                return 'No action needed';
-            
-            return 'Consider adding these keywords to the product\'s description';
-        },
         getRowClass(status) {
             switch(status) {
                 case 0:
@@ -175,6 +152,12 @@ export default {
                 return 'Pass';
             
             return `Fail - ${this.stats.image.width}x${this.stats.image.height}`;
+        },
+        product() {
+            return this.scan.product;
+        },
+        stats() {
+            return this.scan.statistics;
         }
     }
 }
@@ -200,20 +183,5 @@ export default {
 .row-bad {
     color: #c0392b;
     font-weight: bold;
-}
-
-.loading-container {
-    width: 100%;
-    text-align: center;
-}
-
-.keyword {
-    display: inline-block;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-    padding: 3px 7px;
-    background: rgba(52, 73, 94, 0.7);
-    color: #fff;
-    border-radius: 8px;
 }
 </style>
