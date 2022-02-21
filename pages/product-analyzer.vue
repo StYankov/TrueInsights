@@ -63,9 +63,6 @@ export default {
       error: false,
       scan: null,
       url: "",
-      product: null,
-      statistics: null,
-      sponsored: null
     };
   },
   methods: {
@@ -74,6 +71,7 @@ export default {
 
       this.error = false;
       this.loading = true;
+      this.scan = null
 
       try {
         const response = await this.$axios.post("/product-analyzer", { url: this.url });

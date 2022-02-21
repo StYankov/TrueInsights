@@ -81,6 +81,10 @@ export default {
     @include media-breakpoint-up(lg) {
         width: 25%;
     }
+
+    .retailer-block {
+        width: 100% !important;
+    }
 }
 
 .retailers-list {
