@@ -26,7 +26,7 @@
           <Product v-if="scan.product" :product="scan.product" />
           <Stats v-if="scan.statistics" :scan="scan" :stats="scan.statistics" :product="scan.product" />
           <Sponsored 
-            v-if="scan" 
+            v-if="scan && scan.sponsored" 
             :product="scan.product" 
             :sponsored="scan.sponsored"
           />

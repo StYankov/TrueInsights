@@ -25,10 +25,6 @@ export default {
         description: {
             type: String,
             required: false
-        },
-        icon: {
-            type: String,
-            required: false
         }
     }
 }

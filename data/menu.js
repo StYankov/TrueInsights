@@ -27,23 +27,23 @@ export default [
             }
         ]
     },
-    {
-        title: 'Reviews Analyzer',
-        icon: ['fas', 'star'],
-        fontawesome: true,
-        route: 'reviews-analyzer',
-        to: '/reviews-analyzer',
-        subitems: [
-            {
-                title: 'Create New Analysis',
-                to: '/reviews-analyzer/create'
-            },
-            {
-                title: 'Saved Reports',
-                to: '/reviews-analyzer'
-            }
-        ]
-    },
+    // {
+    //     title: 'Reviews Analyzer',
+    //     icon: ['fas', 'star'],
+    //     fontawesome: true,
+    //     route: 'reviews-analyzer',
+    //     to: '/reviews-analyzer',
+    //     subitems: [
+    //         {
+    //             title: 'Create New Analysis',
+    //             to: '/reviews-analyzer/create'
+    //         },
+    //         {
+    //             title: 'Saved Reports',
+    //             to: '/reviews-analyzer'
+    //         }
+    //     ]
+    // },
     {
         title: 'Marketplace Analysis',
         icon: ['fas', 'chart-line'],

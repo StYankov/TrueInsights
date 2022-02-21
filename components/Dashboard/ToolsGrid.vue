@@ -6,10 +6,16 @@
             description="Find the most searched terms"
         />
         <Tool
-            url="/reviews-analyzer"
-            title="Reviews Analyzer"
-            description="Find ouy what your clients think of your products"
-            icon="/images/icons/review.png"
+            url="/analytics"
+            title="Marketplace Analytics"
+            description="Full analysis of all key metrics for an online retailer"
+            icon="/images/chart.svg"
+        />
+        <Tool
+            url="/product-analyzer"
+            title="Product Analyzer"
+            description="Analyze key performance indicators for a product"
+            icon="/images/signal.svg"
         />
     </div>
 </template>
