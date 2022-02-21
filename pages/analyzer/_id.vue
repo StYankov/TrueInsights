@@ -12,7 +12,7 @@
           :product="data.product"
         />
         <Sponsored
-          v-if="data"
+          v-if="data && data.sponsored"
           :product="data.product"
           :sponsored="data.sponsored"
         />
