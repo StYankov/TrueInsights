@@ -4,7 +4,7 @@
         <td><a :href="product.url">{{ product.url }}</a></td>
         <td>{{ store }}</td>
         <td>{{ createdAt }}</td>
-        <td><a class="btn btn-sm btn-secondary" :href="`/analyzer/${data._id}`">View</a></td>
+        <td><nuxt-link class="btn btn-sm btn-secondary" :to="`/analyzer/${data._id}`">View</nuxt-link></td>
     </tr>
 </template>
 <script>
