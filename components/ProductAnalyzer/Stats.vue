@@ -28,10 +28,10 @@
 
             <tr :class="getRowClass(stats.images.status)">
                 <td>Images</td>
-                <td>{{ stats.images.average }}</td>
+                <td>{{ stats.images.max }}</td>
                 <td>{{ stats.images.current }}</td>
                 <td>{{ getStatus(stats.images.status) }}</td>
-                <td>{{ getImagesAction(stats.images.status, stats.images.current, stats.images.average) }}</td>
+                <td>{{ getImagesAction(stats.images.status, stats.images.current, stats.images.max) }}</td>
             </tr>
 
             <tr>
