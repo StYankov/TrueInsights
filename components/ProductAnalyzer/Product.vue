@@ -1,9 +1,9 @@
 <template>
     <div class="product-box row">
-        <div class="col-md-4">
+        <div class="col-md-3 text-md-center">
             <img :src="image" />
         </div>
-        <div class="col-md-7">
+        <div class="col-md-5 pl-md-0">
             <p class="product-category mb-4">{{ categoryChain }}</p>
             <h2 class="mb-4">{{ product.title }}</h2>
 
@@ -14,12 +14,25 @@
             <p v-if="showMore" class="mb-2" v-html="product.description"></p>
             <a class="mb-1 read-more" href="#" v-if="product.description.length > 200 && showMore" @click.prevent="showMore = false">Show less</a>
         </div>
+        <div class="col-md-4">
+            <ProductHealth :stats="stats" :score="100" />
+        </div>
     </div>
 </template>
 <script>
+import ProductHealth from '@/components/ProductAnalyzer/ProductHealth';
+
 export default {
+    components: {
+        ProductHealth
+    },
     props: {
         product: {
+            type: Object,
+            required: true,
+            default: () => {}
+        },
+        stats: {
             type: Object,
             required: true,
             default: () => {}
@@ -32,7 +45,6 @@ export default {
     },
     computed: {
         image() {
-            // return this.product.images.length > 0 ? this.product.images[0] : ''
             return this.product.thumb_url;
         },
         categoryChain() {

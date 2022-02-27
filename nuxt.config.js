@@ -42,7 +42,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/axios.js',
-    { src: '~/plugins/vue-sweetalert2.js', mode: 'client' }
+    { src: '~/plugins/vue-sweetalert2.js', mode: 'client' },
+    { src: '~/plugins/vue-ellipse-progress.js', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

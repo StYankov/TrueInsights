@@ -4,7 +4,7 @@
 
     <div class="row mt-5">
       <div class="col">
-        <Product v-if="data.product" :product="data.product" />
+        <Product v-if="data.product" :stats="data.statistics" :product="data.product" />
         <Stats
           v-if="data.statistics"
           :scan="data"

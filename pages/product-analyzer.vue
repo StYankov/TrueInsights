@@ -23,7 +23,7 @@
 
       <template v-if="scan">
         <div class="col">
-          <Product v-if="scan.product" :product="scan.product" />
+          <Product v-if="scan.product" :stats="scan.statistics" :product="scan.product" />
           <Stats v-if="scan.statistics" :scan="scan" :stats="scan.statistics" :product="scan.product" />
           <Sponsored 
             v-if="scan && scan.sponsored" 
