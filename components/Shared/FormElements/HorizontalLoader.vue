@@ -5,13 +5,14 @@
 </template>
 <script>
 export default {
-    data() {
-        return {
-            progress: 0
-        }
-    },
+    props: ['progress'],
+    // data() {
+    //     return {
+    //         progress: 0
+    //     }
+    // },
     mounted() {
-        setTimeout(this.fill, 1000);
+        // setTimeout(this.fill, 1000);
     },
     methods: {
         fill() {

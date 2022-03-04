@@ -1,7 +1,7 @@
 <template>
     <div class="base-input" :class="containerClass">
         <label :for="name">{{ placeholder }}</label> 
-        <VueSelect :id="name" :name="name" :class="inputClass" @change="$emit('change')" :value="value" :options="options" />
+        <VueSelect :id="name" :name="name" :class="inputClass" @input="$emit('change', $event)" :value="value" :options="options" />
         <p v-if="desc" class="base-input__desc">
             {{ desc }}
         </p>

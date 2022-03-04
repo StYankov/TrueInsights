@@ -4,7 +4,7 @@
       <client-only>
         <vue-ellipse-progress
           :progress="stats.total" 
-          emptyThickness
+          :emptyThickness="8"
           :color="barColor"
           :legend-formatter="legendFormatter"
           :dot="{ size: 20, backgroundColor: '#fff', border: '4px solid ' + barColor }"
@@ -15,6 +15,7 @@
           </template>
         </vue-ellipse-progress>
       </client-only>
+      <slot name="below-circle"></slot>
     </div>
     <div class="product-metrics">
       <Meter title="Ttile" :score="stats.title.score" />

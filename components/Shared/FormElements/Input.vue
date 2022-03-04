@@ -11,9 +11,12 @@
             @keyup.enter="$emit('enter', $event)"
             @blur="$emit('blur', $event)"
         >
-        <p v-if="desc" class="base-input__desc">
-            {{ desc }}
-        </p>
+        <div class="below-input">
+            <slot name="below-input"></slot>
+            <p v-if="desc" class="base-input__desc">
+                {{ desc }}
+            </p>
+        </div>
     </div>
 </template>
 <script>
@@ -65,12 +68,18 @@ export default {
         margin-bottom: 0.5rem;
     }
 
+    .below-input {
+        display: flex;
+        justify-content: space-between;
+    }
+
     &__desc {
         font-size: 0.75rem;
         font-weight: bold;
         line-height: 1.15;
         text-align: right;
         color: #4b21d8;
+        width: 100%;
     }
 }
 </style>

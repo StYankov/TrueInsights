@@ -10,6 +10,7 @@
     flex-direction: row;
     align-items: center;
     padding-left: 300px;
+    justify-content: flex-end;
   }
 
   &__qa-btn.btn {
@@ -35,6 +36,7 @@
 
     @include media-breakpoint-up(lg) {
       display: block;
+      margin-right: 2.5rem;
     }
   }
 

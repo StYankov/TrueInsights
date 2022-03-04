@@ -2,7 +2,8 @@
     <button 
         class="base-button" 
         :class="{ 
-            'base-button--small': small, 
+            'base-button--small': small || medium, 
+            'base-button--medium': medium, 
             'base-button--fluid': fluid,
             'base-button--center': center, 
             [buttonClasses]: true
@@ -28,6 +29,11 @@ export default {
             default: 'button'
         },
         small: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
+        medium: {
             type: Boolean,
             required: false,
             default: false
@@ -77,6 +83,10 @@ export default {
         padding: 0.4rem 2.5rem;
         font-size: 0.9rem;
         min-width: 0;
+    }
+
+    &--medium {
+        padding: 0.75rem 2.5rem;
     }
 
     &--fluid {

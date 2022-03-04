@@ -59,6 +59,10 @@ export default [
         to: '/product-analyzer',
         subitems: [
             {
+                title: 'Groups',
+                to: '/analyzer/groups'
+            },
+            {
                 title: 'History',
                 to: '/analyzer/history'
             }

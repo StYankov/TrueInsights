@@ -10,15 +10,15 @@
             <a class="btn header__qa-btn" href="#">
                 Tools
             </a>
-            <a class="btn header__qa-btn" href="#">
+            <!-- <a class="btn header__qa-btn" href="#">
                 Learning Center
-            </a>
+            </a> -->
             <a class="btn header__qa-btn" href="#">
                 Submit a Ticket
             </a>
-            <a class="btn header__qa-btn" href="#">
+            <!-- <a class="btn header__qa-btn" href="#">
                 For Innovators
-            </a>
+            </a> -->
         </div>
 
         <div class="header__actions">
