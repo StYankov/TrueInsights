@@ -14,6 +14,7 @@
     </div>
 
     <div class="row mt-5">
+      <UnsupportedStores v-if="unknownStore" @send="notify" @close="unknownStore = false" />
       <template v-if="loading">
         <div class="loader-container">
           <Loading />
@@ -33,9 +34,13 @@
         </div>
       </template>
 
-      <template v-if="error">
-        <h3 class="text-center">{{ error }}</h3>
+      <template v-if="!scan && !loading">
+        <SupportedStores />
       </template>
+
+      <!-- <template v-if="error">
+        <h3 class="text-center">{{ error }}</h3>
+      </template> -->
     </div>
   </div>
 </template>
@@ -48,6 +53,9 @@ import Product from "@/components/ProductAnalyzer/Product";
 import Stats from "@/components/ProductAnalyzer/Stats";
 import Sponsored from "@/components/ProductAnalyzer/Sponsored";
 
+import SupportedStores from "@/components/ProductAnalyzer/SupportedStores";
+import UnsupportedStores from "@/components/ProductAnalyzer/UnsupportedStore";
+
 export default {
   components: {
     Button,
@@ -55,7 +63,9 @@ export default {
     Product,
     Loading,
     Stats,
-    Sponsored
+    Sponsored,
+    SupportedStores,
+    UnsupportedStores
   },
   data() {
     return {
@@ -63,6 +73,7 @@ export default {
       error: false,
       scan: null,
       url: "",
+      unknownStore: false
     };
   },
   methods: {
@@ -86,24 +97,32 @@ export default {
         this.statistics = response.data.statistics;
         this.sponsored  = response.data.sponsored;
       } catch (err) {
+        if(err.response && err.response.data)
+          this.getError(err.response.data);
+
         this.error = true;
-        this.$swal.fire(
-            'Warning',
-            this.getError(err),
-            'warning'
-        );
       }
 
       this.loading = false;
     },
+    async notify() {
+      try {
+        await this.$axios.post('/monday/notify', { url: this.url });
+      } catch(e) {}
+
+      this.unknownStore = false;
+    },
     getError(data) {
-        if(data.response && data.response.data && data.response.data.errors) {
-            const errors = data.response.data.errors;
+      if(data.status === 'STORE_UNKNOWN') {
+        this.unknownStore = true;
+      }
+        // if(data.response && data.response.data && data.response.data.errors) {
+        //     const errors = data.response.data.errors;
 
-            return errors[Object.keys(errors)[0]][0];
-        }
+        //     return errors[Object.keys(errors)[0]][0];
+        // }
 
-        return 'Unexpected Error. Please try again';
+        // return 'Unexpected Error. Please try again';
     }
   },
 };

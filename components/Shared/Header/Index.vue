@@ -7,13 +7,13 @@
         </button>
 
         <div class="header__quick-access">
-            <a class="btn header__qa-btn" href="#">
+            <!-- <a class="btn header__qa-btn" href="#">
                 Tools
-            </a>
+            </a> -->
             <!-- <a class="btn header__qa-btn" href="#">
                 Learning Center
             </a> -->
-            <a class="btn header__qa-btn" href="#">
+            <a class="btn header__qa-btn" target="_blank" href="https://forms.monday.com/forms/4e100e90b397f970500a6c5456c8d64f?r=use1">
                 Submit a Ticket
             </a>
             <!-- <a class="btn header__qa-btn" href="#">
