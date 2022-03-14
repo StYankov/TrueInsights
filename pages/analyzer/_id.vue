@@ -5,7 +5,7 @@
     <div class="row mt-5">
       <div class="col">
         <Product v-if="data.product" :stats="data.statistics" :product="data.product" />
-        <Heatmaps v-if="scan.heatmaps" :heatmaps="scan.heatmaps" />
+        <Heatmaps v-if="data.heatmaps" :heatmaps="data.heatmaps" />
         <Stats
           v-if="data.statistics"
           :scan="data"
