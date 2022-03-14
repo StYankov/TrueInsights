@@ -43,7 +43,7 @@ export default {
             return this.group.product;
         },
         analyzerUrl() {
-            return `/analyzer/${this.group._id}`;
+            return `/analyzer/${this.product._id}`;
         }
     }
 }
