@@ -1,7 +1,20 @@
 <template>
     <div class="base-input" :class="containerClass">
         <label :for="name">{{ placeholder }}</label> 
-        <VueSelect :id="name" :name="name" :class="inputClass" @input="$emit('change', $event)" :value="value" :options="options" />
+        <VueSelect 
+            :multiple="multiple" 
+            :id="name" 
+            :name="name" 
+            :class="inputClass" 
+            :value="value"
+            :placeholder="defaultValue"
+            :options="options"
+            @input="$emit('change', $event)">
+              <template v-slot:option="option">
+                <span v-if="option.country" class="option-country"><img :src="`/images/flags/${option.country.toLowerCase()}.png`" /></span>
+                {{ option.label }}
+            </template>
+        </VueSelect>
         <p v-if="desc" class="base-input__desc">
             {{ desc }}
         </p>
@@ -38,10 +51,19 @@ export default {
             type: String,
             required: false
         },
+        defaultValue: {
+            type: String,
+            required: false
+        },
         options: {
             type: Array,
             required: false,
             default: () => []
+        },
+        multiple: {
+            type: Boolean,
+            required: false,
+            default: false
         }
     }
 }
@@ -71,6 +93,12 @@ export default {
         line-height: 1.15;
         text-align: right;
         color: #4b21d8;
+    }
+
+    .option-country img {
+        display: inline-block;
+        width: 28px;
+        margin-right: 8px;
     }
 }
 </style>

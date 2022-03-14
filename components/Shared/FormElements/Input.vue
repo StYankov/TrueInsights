@@ -1,5 +1,6 @@
 <template>
     <div class="base-input" :class="containerClass">
+        <label v-if="label">{{ label }}</label>
         <input 
             ref="input"
             :type="type" 
@@ -48,6 +49,10 @@ export default {
             required: false
         },
         placeholder: {
+            type: String,
+            required: false
+        },
+        label: {
             type: String,
             required: false
         }
