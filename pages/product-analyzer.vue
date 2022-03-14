@@ -25,6 +25,7 @@
       <template v-if="scan">
         <div class="col">
           <Product v-if="scan.product" :stats="scan.statistics" :product="scan.product" />
+          <Heatmaps v-if="scan.heatmaps" :heatmaps="scan.heatmaps" />
           <Stats v-if="scan.statistics" :scan="scan" :stats="scan.statistics" :product="scan.product" />
           <Sponsored 
             v-if="scan && scan.sponsored" 
@@ -52,6 +53,7 @@ import Loading from "@/components/Shared/FormElements/Loader";
 import Product from "@/components/ProductAnalyzer/Product";
 import Stats from "@/components/ProductAnalyzer/Stats";
 import Sponsored from "@/components/ProductAnalyzer/Sponsored";
+import Heatmaps from '@/components/ProductAnalyzer/Heatmaps';
 
 import SupportedStores from "@/components/ProductAnalyzer/SupportedStores";
 import UnsupportedStores from "@/components/ProductAnalyzer/UnsupportedStore";
@@ -65,7 +67,8 @@ export default {
     Stats,
     Sponsored,
     SupportedStores,
-    UnsupportedStores
+    UnsupportedStores,
+    Heatmaps
   },
   data() {
     return {

@@ -1,7 +1,7 @@
 <template>
     <tr>
         <td>{{ product.title }}</td>
-        <td><a :href="product.url">{{ product.url }}</a></td>
+        <td><a :href="product.url">{{ productUrl }}</a></td>
         <td>{{ store }}</td>
         <td>{{ createdAt }}</td>
         <td><nuxt-link class="btn btn-sm btn-secondary" :to="`/analyzer/${data._id}`">View</nuxt-link></td>
@@ -27,6 +27,9 @@ export default {
             const minutes = date.getMinutes().toString().padStart(2, '0');
             
             return `${day}.${month}.${date.getFullYear()} ${hours}:${minutes}`;
+        },
+        productUrl() {
+            return this.product.url.split('?')[0];
         }
     }
 }
