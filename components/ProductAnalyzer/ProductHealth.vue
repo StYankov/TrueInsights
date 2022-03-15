@@ -97,7 +97,7 @@ export default {
   }
 
   .ep-legend--container {
-    position: relative;
+    position: relative !important;
     left: -35px;
     transform: rotateZ(-90deg);
   }
