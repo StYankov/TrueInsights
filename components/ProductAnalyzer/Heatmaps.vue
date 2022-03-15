@@ -3,8 +3,8 @@
         <div class="cursor d-flex justify-content-between align-items-center">
             <h4>Heatmaps</h4>
 
-            <Button v-if="show" small @click="show = !show">Show</Button>
-            <Button v-else small @click="show = !show">Hide</Button>
+            <Button v-if="show" small @click="show = !show">Hide</Button>
+            <Button v-else small @click="show = !show">Show</Button>
         </div>
         
         <transition name="expand">
@@ -57,7 +57,7 @@ export default {
 
 @media (min-width: 1400px) {
     .image-comparison img {
-        width: 300px;
+        width: 288px;
         height: 300px;
         margin-right: 0.5rem;
     }

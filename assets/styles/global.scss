@@ -53,6 +53,6 @@ body {
 
 .container.container-big {
     @include media-breakpoint-up(lg) {
-        width: 95%;
+        width: 97%;
     }
 }
