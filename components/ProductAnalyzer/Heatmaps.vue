@@ -1,9 +1,10 @@
 <template>
     <div class="heatmaps mb-5">
-        <div @click="show = !show" class="cursor d-flex justify-content-between align-items-center">
+        <div class="cursor d-flex justify-content-between align-items-center">
             <h4>Heatmaps</h4>
-            <fa v-if="show" :icon="['fa', 'chevron-down']" />
-            <fa v-else :icon="['fa', 'plus']" />
+
+            <Button v-if="show" small @click="show = !show">Show</Button>
+            <Button v-else small @click="show = !show">Hide</Button>
         </div>
         
         <transition name="expand">
@@ -23,7 +24,10 @@
     </div>
 </template>
 <script>
+import Button from '@/components/Shared/FormElements/Button';
+
 export default {
+    components: { Button },
     props: ['heatmaps'],
     data() {
         return {
