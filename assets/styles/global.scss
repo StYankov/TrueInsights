@@ -50,3 +50,9 @@ body {
 .container-fluid {
     padding: 0;
 }
+
+.container.container-big {
+    @include media-breakpoint-up(lg) {
+        width: 95%;
+    }
+}

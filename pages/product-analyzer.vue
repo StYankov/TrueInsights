@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container container-big">
     <h3 class="section-title mb-2 mb-lg-4 text-center">Product Analyzer</h3>
 
     <div class="row justify-content-center">

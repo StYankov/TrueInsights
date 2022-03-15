@@ -8,7 +8,7 @@
         </div>
         
         <transition name="expand">
-            <div v-if="show" class="heatmaps__content">
+            <div v-if="show" class="heatmaps__content pt-3">
                 <div v-for="(heatmap, origin) in heatmaps" :key="heatmap" class="image-comparison">
                     <div class="image-box">
                         <img :src="origin" />
@@ -37,6 +37,12 @@ export default {
 }
 </script>
 <style scoped>
+.heatmaps__content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 .image-comparison {
     display: flex;
     margin-bottom: 2rem;
@@ -44,9 +50,17 @@ export default {
 
 .image-comparison img {
     display: block;
-    width: 300px;
-    height: 300px;
-    margin-right: 0.5rem;
+    width: 280px;
+    height: 285px;
+    margin-right: 0.25rem;
+}
+
+@media (min-width: 1400px) {
+    .image-comparison img {
+        width: 300px;
+        height: 300px;
+        margin-right: 0.5rem;
+    }
 }
 
 .image-box {
