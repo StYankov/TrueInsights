@@ -24,7 +24,7 @@ export const getters = {
 
         const results = {};
         for(const product of filtered) {
-            const storeName = `${product.store} ${product.country}`;
+            const storeName = `${product.store} ${product.country || ''}`;
             if(!results[storeName]) {
                 results[storeName] = [];
             }
