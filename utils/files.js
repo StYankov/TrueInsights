@@ -139,7 +139,11 @@ export const getStore = url => {
     'amazon.de': 'amazon_de',
     'ozon.ru': 'ozon_ru',
     'wildberries.ru': 'wildberries_ru',
-    'argos.co.uk': 'argos_uk'
+    'argos.co.uk': 'argos_uk',
+    'amazon.co.uk': 'amazon_uk',
+    'groceries.morrisons.com': 'morrisons_uk',
+    'waitrose.com': 'waitrose_uk',
+    'ocado.com': 'ocado_uk'
   }
 
   for(const key in map) {
