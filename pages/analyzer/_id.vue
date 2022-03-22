@@ -5,6 +5,7 @@
     <div class="row mt-5">
       <div class="col">
         <Product v-if="data.product" :stats="data.statistics" :product="data.product" />
+        <MobileOptimizedScore v-if="data.mobile_optimized" :imageData="data.mobile_optimized" /> 
         <Heatmaps v-if="data.heatmaps" :heatmaps="data.heatmaps" />
         <Stats
           v-if="data.statistics"
@@ -40,6 +41,7 @@ import Product from "@/components/ProductAnalyzer/Product";
 import Stats from "@/components/ProductAnalyzer/Stats";
 import Sponsored from "@/components/ProductAnalyzer/Sponsored";
 import Heatmaps from '@/components/ProductAnalyzer/Heatmaps';
+import MobileOptimizedScore from "@/components/ProductAnalyzer/MobileOptimizedScore";
 
 export default {
   components: {
@@ -49,7 +51,8 @@ export default {
     Loading,
     Stats,
     Sponsored,
-    Heatmaps
+    Heatmaps,
+    MobileOptimizedScore
   },
   async asyncData({ store, params, redirect }) {
     const result = await store.dispatch("analyzer/getHistoryItem", params.id);

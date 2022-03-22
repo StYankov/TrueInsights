@@ -25,6 +25,7 @@
       <template v-if="scan">
         <div class="col">
           <Product v-if="scan.product" :stats="scan.statistics" :product="scan.product" />
+          <MobileOptimizedScore v-if="scan.mobile_optimized" :imageData="scan.mobile_optimized" /> 
           <Heatmaps v-if="scan.heatmaps" :heatmaps="scan.heatmaps" />
           <Stats v-if="scan.statistics" :scan="scan" :stats="scan.statistics" :product="scan.product" />
           <Sponsored 
@@ -57,6 +58,7 @@ import Heatmaps from '@/components/ProductAnalyzer/Heatmaps';
 
 import SupportedStores from "@/components/ProductAnalyzer/SupportedStores";
 import UnsupportedStores from "@/components/ProductAnalyzer/UnsupportedStore";
+import MobileOptimizedScore from "@/components/ProductAnalyzer/MobileOptimizedScore";
 
 export default {
   components: {
@@ -68,7 +70,8 @@ export default {
     Sponsored,
     SupportedStores,
     UnsupportedStores,
-    Heatmaps
+    Heatmaps,
+    MobileOptimizedScore
   },
   data() {
     return {
