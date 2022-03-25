@@ -34,7 +34,7 @@
                 <td>{{ getImagesAction(stats.images.status, stats.images.current, stats.images.max) }}</td>
             </tr>
 
-            <tr>
+            <tr :class="getRatingColor">
                 <td>Rating</td>
                 <td>{{ stats.rating.average }}</td>
                 <td>{{ stats.rating.current }}</td>
@@ -42,7 +42,7 @@
                 <td></td>
             </tr>
 
-            <tr>
+            <tr :class="getReviewColor">
                 <td>Reviews</td>
                 <td>{{ stats.reviews.average }}</td>
                 <td>{{ stats.reviews.current }}</td>
@@ -158,6 +158,36 @@ export default {
         },
         stats() {
             return this.scan.statistics;
+        },
+        getRatingColor() {
+            const difference = Math.floor(this.stats.rating.current / this.stats.rating.average * 100);
+            const diviation = 100 - difference;
+
+            if(diviation < 10)
+                return this.getRowClass(0);
+
+            if(diviation < 20)
+                return this.getRowClass(1);
+
+            if(diviation < 30)
+                return this.getRowClass(2);
+
+            return this.getRowClass(3);
+        },
+        getReviewColor() {
+            const difference = Math.floor(this.stats.reviews.current / this.stats.reviews.average * 100);
+            const diviation = 100 - difference;
+
+            if(diviation < 10)
+                return this.getRowClass(0);
+
+            if(diviation < 20)
+                return this.getRowClass(1);
+
+            if(diviation < 30)
+                return this.getRowClass(2);
+
+            return this.getRowClass(3);  
         }
     }
 }
