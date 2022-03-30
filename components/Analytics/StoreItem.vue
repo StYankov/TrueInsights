@@ -1,7 +1,7 @@
 <template>
     <nuxt-link :to="url" class="keyword-item animate__animated animate__fadeInDown" :style="animationDelay">
-        <h2 class="keyword-item__name">{{ store.name }}</h2>
-        <p class="keyword-item__summary">{{ store.description }}</p>
+        <h2 class="keyword-item__name">{{ store.view_name }}</h2>
+        <!-- <p class="keyword-item__summary">{{ store.description }}</p> -->
 
         <span class="keyword-item__more">
             <fa :icon="['fas', 'cog']" />
@@ -23,7 +23,7 @@ export default {
     },
     computed: {
         url() {
-            return `/analytics/${this.store.id}`;
+            return `/analytics/view/${this.store.id}`;
         },
         animationDelay() {
             const index = this.index || 0;

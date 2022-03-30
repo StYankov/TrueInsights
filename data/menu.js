@@ -8,6 +8,23 @@ export default [
 
     },
     {
+        title: 'Product Analyzer',
+        icon: ['fas', 'signal'],
+        fontawesome: true,
+        route: 'product-analyzer',
+        to: '/product-analyzer',
+        subitems: [
+            {
+                title: 'Groups',
+                to: '/analyzer/groups'
+            },
+            {
+                title: 'History',
+                to: '/analyzer/history'
+            }
+        ]
+    },
+    {
         title: 'The Keyword Finder',
         icon: '/images/logo-icon.png',
         route: 'finder',
@@ -24,6 +41,31 @@ export default [
             {
                 title: 'Keyword Explorer',
                 to: '/finder/explorer',
+            }
+        ]
+    },
+    {
+        title: 'Analytics',
+        icon: ['fas', 'chart-line'],
+        fontawesome: true,
+        route: '#',
+        to: '#',
+        subitems: [
+            {
+                title: 'Product Content',
+                to: '/analytics/product-content'
+            },
+            {
+                title: 'Reviews',
+                to: '/analytics/reviews'
+            },
+            {
+                title: 'Share of search',
+                to: '/analytics/share-of-search'
+            },
+            {
+                title: 'Sponsored Search',
+                to: '/analytics/sponsored-search'
             }
         ]
     },
@@ -44,52 +86,11 @@ export default [
     //         }
     //     ]
     // },
-    {
-        title: 'Marketplace Analysis',
-        icon: ['fas', 'chart-line'],
-        fontawesome: true,
-        route: 'analytics',
-        to: '/analytics'
-    },
-    {
-        title: 'Product Analyzer',
-        icon: ['fas', 'signal'],
-        fontawesome: true,
-        route: 'product-analyzer',
-        to: '/product-analyzer',
-        subitems: [
-            {
-                title: 'Groups',
-                to: '/analyzer/groups'
-            },
-            {
-                title: 'History',
-                to: '/analyzer/history'
-            }
-        ]
-    }
     // {
     //     title: 'Marketplace Analysis',
     //     icon: ['fas', 'chart-line'],
     //     fontawesome: true,
-    //     to: '#',
-    //     subitems: [
-    //         {
-    //             title: 'Perfect KPI Dashboard',
-    //             link: '#'
-    //         },
-    //         {
-    //             title: 'Global Brand Content',
-    //             link: '#'
-    //         },
-    //         {
-    //             title: 'Share of Search',
-    //             link: '#'
-    //         },
-    //         {
-    //             title: 'Portfolio Abailability',
-    //             link: '#'
-    //         }
-    //     ]
+    //     route: 'analytics',
+    //     to: '/analytics'
     // }
 ];
