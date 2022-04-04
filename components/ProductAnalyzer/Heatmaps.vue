@@ -9,13 +9,13 @@
         
         <transition name="expand">
             <div v-if="show" class="heatmaps__content pt-3">
-                <div v-for="(heatmap, origin) in heatmaps" :key="heatmap" class="image-comparison">
+                <div v-for="heatmap in heatmaps" :key="heatmap" class="image-comparison">
                     <div class="image-box">
-                        <img :src="origin" />
+                        <img :src="heatmap.original" />
                         <p class="image-label">Original</p>
                     </div>
                     <div class="image-box">
-                        <img :src="heatmap" />
+                        <img :src="heatmap.heatmap" />
                         <p class="image-label">Heatmap</p>
                     </div>
                 </div>
