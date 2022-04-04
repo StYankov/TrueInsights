@@ -83,21 +83,21 @@ export default {
         }
     },
     mounted() {
-        if(!this.scan.missing_keywords)
-            this.loadMissingKeywords();
+        // if(!this.scan.missing_keywords)
+        //     this.loadMissingKeywords();
     },
     methods: {
-        async loadMissingKeywords() {
-            this.loading = true;
-            try {
-                const response = await this.$axios.post('missing-keywords', { scan_id: this.scan._id });
+        // async loadMissingKeywords() {
+        //     this.loading = true;
+        //     try {
+        //         const response = await this.$axios.post('missing-keywords', { scan_id: this.scan._id });
 
-                this.missingKeywords = response.data;
-                this.loading = false;
-            } catch(err) {
-                this.errors = true;
-            }
-        },
+        //         this.missingKeywords = response.data;
+        //         this.loading = false;
+        //     } catch(err) {
+        //         this.errors = true;
+        //     }
+        // },
         getStatus(value) {
             if(value === 0)
                 return 'Excellent';
