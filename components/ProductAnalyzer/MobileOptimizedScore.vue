@@ -6,18 +6,19 @@
                 <img class="benchmarked-image" :src="imageData.image" />
             </div>
             <div class="col-md-3">
-                <client-only>
-                    <vue-ellipse-progress
-                        :progress="imageData.score" 
-                        :emptyThickness="8"
-                        :color="barColor"
-                        :legend-formatter="legendFormatter"
-                        :dot="{ size: 20, backgroundColor: '#fff', border: '4px solid ' + barColor }"
-                    >
-                    </vue-ellipse-progress>
-                </client-only>
-
-                <p style="ml-5">{{ imageData.status }} </p>
+                <div class="mobile-progrss d-flex align-items-center justify-content-center flex-column">
+                    <client-only>
+                        <vue-ellipse-progress
+                            :progress="imageData.score" 
+                            :emptyThickness="8"
+                            :color="barColor"
+                            :legend-formatter="legendFormatter"
+                            :dot="{ size: 20, backgroundColor: '#fff', border: '4px solid ' + barColor }"
+                        >
+                        </vue-ellipse-progress>
+                    </client-only>
+                    <p class="text-center">{{ imageData.status }}</p>
+                </div>
             </div>
             <div class="col-md-3">
                 <p class="data-row">
@@ -41,7 +42,7 @@
                     {{ imageData['Big Texts'] }}
                 </p>
                 <p class="data-row">
-                    <strong>Horizontal Whitespace inrr %:</strong>
+                    <strong>Horizontal Whitespace in %:</strong>
                     {{ imageData['Horizontal Whitespace'] }}%
                 </p>
                 <p class="data-row">
