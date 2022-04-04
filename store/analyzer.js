@@ -31,11 +31,13 @@ export const actions = {
             commit('setPage', page);
             return;
         }
-
+        
         try {
             const response = await this.$axios.get('product-scans', { page });
             commit('setData', response.data);
-        } catch(err) {}
+        } catch(err) {
+            console.log(err);
+        }
     },
     async getHistoryItem({ commit }, id) {
         try {
