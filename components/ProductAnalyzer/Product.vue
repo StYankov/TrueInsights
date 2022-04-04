@@ -15,7 +15,7 @@
             <a class="mb-1 read-more" href="#" v-if="product.description.length > 200 && showMore" @click.prevent="showMore = false">Show less</a>
         </div>
         <div class="col-md-4">
-            <h5 class="text-center">Total Product Health</h5>
+            <h5>Total Product Health</h5>
             <ProductHealth :stats="stats" :score="100" />
         </div>
     </div>
