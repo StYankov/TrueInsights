@@ -58,7 +58,7 @@ export default {
             set: '@fortawesome/free-solid-svg-icons',
             icons: ['faSearch', 'faChevronDown', 'faChevronUp', 'faFileInvoiceDollar', 'faUsers', 'faNetworkWired',
               'faSignOutAlt', 'faHome', 'faChartLine', 'faCog', 'faTrash', 'faStar', 'faTimes', 'faSignal', 'faPlus',
-              'faFileCsv', 'faFileExcel', 'faFile', 'faPen', 'faShoppingBasket ']
+              'faFileCsv', 'faFileExcel', 'faFile', 'faPen', 'faShoppingBasket', 'faChartBar']
           },
           {
             set: '@fortawesome/free-regular-svg-icons',

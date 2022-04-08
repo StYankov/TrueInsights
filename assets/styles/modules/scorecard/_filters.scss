@@ -1,0 +1,18 @@
+.scorecard-filters {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 35px;
+
+    .form-group {
+        margin-right: 16px;
+
+        label {
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+    }
+
+    .v-select {
+        min-width: 180px;
+    }
+}

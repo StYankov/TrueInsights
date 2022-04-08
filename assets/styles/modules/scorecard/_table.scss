@@ -1,0 +1,21 @@
+.scorecard-table {
+    th {
+        background-color: #F1F1F1;
+        text-align: center;
+    }
+
+    tr td:first-child {
+        font-weight: bold;
+        width: 300px;
+        background-color: #F1F1F1;
+    }
+
+    tr td:not(:first-child) {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    td .info {
+        font-size: 12px;
+    }
+}

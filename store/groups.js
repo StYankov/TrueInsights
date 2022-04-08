@@ -36,6 +36,9 @@ export const getters = {
     },
     stores: state => {
         const result = {};
+        if(!state.group || !state.group.products)
+            return result;
+
         for(const product of state.group.products) {
             result[product.store_slug] = {
                 name: product.store,
@@ -44,6 +47,9 @@ export const getters = {
         }
 
         return result;
+    },
+    getGroup: state => id => {
+        return state.data.find(x => x._id === id);
     }
 }
 
@@ -57,7 +63,10 @@ export const mutations = {
 }
 
 export const actions = {
-    async getGroups({ commit }) {
+    async getGroups({ commit, state }) {
+        if(state.data.length)
+            return [state.data, false];
+        
         try {
             const response = await this.$axios.get('/product-groups');
 

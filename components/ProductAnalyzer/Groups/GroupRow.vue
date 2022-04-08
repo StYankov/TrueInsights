@@ -64,6 +64,7 @@ export default {
         align-items: center;
 
         .product-thumb img {
+            object-fit: contain;
             width: 150px;
             height: auto;
             max-height: 180px;

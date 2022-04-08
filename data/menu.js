@@ -25,6 +25,13 @@ export default [
         ]
     },
     {
+        title: 'Score Card',
+        icon: ['fas', 'chart-bar'],
+        fontawesome: true,
+        route: 'scorecard',
+        to: '/scorecard'
+    },
+    {
         title: 'The Keyword Finder',
         icon: '/images/logo-icon.png',
         route: 'finder',
