@@ -16,10 +16,22 @@
                 </tr>
             </tbody>
         </table>
+        <div class="brand-charts">
+            <template v-if="stores.length > 1">
+                <RetailerChart :column="rows[0]" :xLabels="stores" legend="Title Length Score" />
+                <RetailerChart :column="rows[1]" :xLabels="stores" legend="Description Length Score" />
+                <RetailerChart :column="rows[2]" :xLabels="stores" legend="Images Length Score" />
+            </template>
+        </div>
     </div>
 </template>
 <script>
+import RetailerChart from '@/components/scorecard/RetailerChart';
+
 export default {
+    components: {
+        RetailerChart
+    },
     props: {
         scorecard: {
             type: Object,
@@ -71,3 +83,11 @@ export default {
     }
 }
 </script>
+<style scoped>
+.brand-charts {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: auto;
+}
+</style>

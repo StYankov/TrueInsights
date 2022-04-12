@@ -7,6 +7,7 @@
     <Filters />
 
     <template v-if="scorecard">
+      <!-- <Tabs /> -->
       <RetailerDashboard v-for="item in scorecard" :scorecard="item" :key="item.brand" />
     </template>
 
@@ -17,12 +18,14 @@
 import GroupSelector from '@/components/scorecard/GroupSelectors';
 import Filters from '@/components/scorecard/Filters';
 import RetailerDashboard from '@/components/scorecard/RetailersDashboard';
+import Tabs from '@/components/scorecard/Tabs';
 
 export default {
     components: { 
         GroupSelector,
         Filters,
-        RetailerDashboard
+        RetailerDashboard,
+        Tabs
     },
     async asyncData({ store }) {
         await store.dispatch('groups/getGroups');

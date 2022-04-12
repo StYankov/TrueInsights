@@ -33,7 +33,7 @@ export const actions = {
         }
         
         try {
-            const response = await this.$axios.get('product-scans', { page });
+            const response = await this.$axios.get('product-scans', { params: { page } });
             commit('setData', response.data);
         } catch(err) {
             console.log(err);
