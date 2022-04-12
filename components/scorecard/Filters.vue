@@ -39,7 +39,7 @@ export default {
         },
         analyze() {
             this.$store.dispatch('scorecard/calculateScorecard');
-        },
+        }
     },
     computed: {
         availableFilters() {
