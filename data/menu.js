@@ -16,7 +16,7 @@ export default [
         subitems: [
             {
                 title: 'Groups',
-                to: '/analyzer/groups'
+                to: '/product-groups'
             },
             {
                 title: 'History',

@@ -68,7 +68,8 @@ export default {
     },
     computed: {
         active() {
-            return this.route === this.$route.name.split('-')[0];
+            return true;
+            // return this.route === this.$route.name.split('-')[0];
         }
     }
 }

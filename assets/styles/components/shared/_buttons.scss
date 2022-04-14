@@ -1,0 +1,17 @@
+.btn-icon {
+    background-color: transparent;
+    border: 0;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.btn-delete {
+    transition: 0.2s ease-out;    
+
+    &:hover {
+        color: #e74c3c;
+    }
+}

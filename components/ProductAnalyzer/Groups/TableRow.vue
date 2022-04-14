@@ -1,13 +1,15 @@
 <template>
-    <tr class="product-group" @click="toggle">
-        <td>
-            <input type="checkbox" ref="input" name="rows[]" value="1">
-        </td>
+    <tr class="product-group">
         <td class="item-name"><nuxt-link :to="`/analyzer/groups/${group._id}`">{{ group.name }}</nuxt-link></td>
         <td class="item-summary"><span class="count">{{ group.urls.length }}</span> SKUs in <span class="count">1</span> store</td>
         <td class="item-score" :style="{color: statusColor}">{{total}}%</td>
         <td><span :class="statusClass" >{{ group.status }}</span></td>
         <td class="item-date">{{ createdAt }}</td>
+        <td class="item-delete">
+            <button @click="deleteRow" type="button" class="btn-icon btn-delete">
+                <fa :icon="['fas', 'trash']" />
+            </button>
+        </td>
     </tr>
 </template>
 <script>
@@ -20,8 +22,10 @@ export default {
         }
     },
     methods: {
-        toggle(e) {
-            this.$refs.input.click();
+        deleteRow() {
+            if(confirm(`Confirm deleting "${this.group.name}" group`)) {
+                this.$store.dispatch('product-groups/deleteGroup', this.group._id);
+            }
         }
     },
     computed: {
