@@ -162,7 +162,7 @@ export default {
                 this.total = response.data.total;
 
                 setTimeout(() => {
-                    this.$router.push(`/analyzer/groups/${this.groupId}`);
+                    this.$router.push(`/product-groups/${this.groupId}`);
                 }, 300);
             } else {
                 this.current = response.data.current;

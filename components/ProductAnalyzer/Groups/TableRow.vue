@@ -1,6 +1,6 @@
 <template>
     <tr class="product-group">
-        <td class="item-name"><nuxt-link :to="`/analyzer/groups/${group._id}`">{{ group.name }}</nuxt-link></td>
+        <td class="item-name"><nuxt-link :to="`/product-groups/${group._id}`">{{ group.name }}</nuxt-link></td>
         <td class="item-summary"><span class="count">{{ group.urls.length }}</span> SKUs in <span class="count">1</span> store</td>
         <td class="item-score" :style="{color: statusColor}">{{total}}%</td>
         <td><span :class="statusClass" >{{ group.status }}</span></td>
