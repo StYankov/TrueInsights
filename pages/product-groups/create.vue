@@ -80,8 +80,12 @@ export default {
             parsedUrls: [],
             groupId: null,
             current: 0,
-            total: 0
+            total: 0,
+            poolInterval: null
         }
+    },
+    beforeDestroy() {
+        clearInterval(this.poolInterval);
     },
     methods: {
         async onSubmit() {
@@ -168,9 +172,10 @@ export default {
                 this.current = response.data.current;
                 this.total = response.data.total;
 
-                setTimeout(() => {
+                clearInterval(this.poolInterval);
+                this.poolInterval = setTimeout(() => {
                     this.pool();
-                }, 1000);
+                }, 5000);
             }
         },
         closeModalAndProcess(column) {
