@@ -34,7 +34,7 @@
                 <td>{{ getImagesAction(stats.images.status, stats.images.current, stats.images.max) }}</td>
             </tr>
 
-            <tr :class="getRatingColor">
+            <tr v-if="stats.rating" :class="getRatingColor">
                 <td>Rating</td>
                 <td>{{ stats.rating.average }}</td>
                 <td>{{ stats.rating.current }}</td>
@@ -42,7 +42,7 @@
                 <td></td>
             </tr>
 
-            <tr :class="getReviewColor">
+            <tr v-if="stats.reviews" :class="getReviewColor">
                 <td>Reviews</td>
                 <td>{{ stats.reviews.average }}</td>
                 <td>{{ stats.reviews.current }}</td>

@@ -1,5 +1,5 @@
 <template>
-    <tr>
+    <tr v-if="product">
         <td>{{ product.title }}</td>
         <td><a :href="product.url">{{ productUrl }}</a></td>
         <td>{{ store }}</td>
@@ -10,6 +10,9 @@
 <script>
 export default {
     props: ['data'],
+    beforeMount() {
+        console.log(this.data);
+    },
     computed: {
         product() {
             return this.data.product;

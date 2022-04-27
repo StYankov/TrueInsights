@@ -143,7 +143,16 @@ export const getStore = url => {
     'amazon.co.uk': 'amazon_uk',
     'groceries.morrisons.com': 'morrisons_uk',
     'waitrose.com': 'waitrose_uk',
-    'ocado.com': 'ocado_uk'
+    'ocado.com': 'ocado_uk',
+    'ah.nl': 'ah_nl',
+    'delhaize.be': 'delhaize_nl',
+    'jumbo.com': 'jumbo_nl',
+    'naturasi.it': 'naturasi_it',
+    'naturitas.es': 'naturitas_es',
+    'nutritienda.com': 'nutritienda_es',
+    'planetahuerto.es': 'planetahuerto_es',
+    'plus.nl': 'plus_nl',
+    'rossmann.de': 'rossmann_de'
   }
 
   for(const key in map) {
