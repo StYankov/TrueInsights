@@ -1,6 +1,6 @@
 <template>
     <div class="hero-image-score">
-        <h4 class="mb-3">Hero Image Score</h4>
+        <h4 class="mb-3">Mobile Friendly Hero Image</h4>
         <div class="row">
             <div class="col-md-3">
                 <img class="benchmarked-image" :src="imageData.image" />
