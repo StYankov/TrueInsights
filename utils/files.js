@@ -152,7 +152,9 @@ export const getStore = url => {
     'nutritienda.com': 'nutritienda_es',
     'planetahuerto.es': 'planetahuerto_es',
     'plus.nl': 'plus_nl',
-    'rossmann.de': 'rossmann_de'
+    'rossmann.de': 'rossmann_de',
+    'dm.de': 'dm_de',
+    'e.leclerc': 'leclerc_fr'
   }
 
   for(const key in map) {
