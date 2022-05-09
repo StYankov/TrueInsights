@@ -8,6 +8,7 @@
 
     <template v-if="scorecard">
       <!-- <Tabs /> -->
+      <OverallScoreByBrand :data="scoreByBrands" />
       <RetailerDashboard v-for="item in scorecard" :scorecard="item" :key="item.brand" />
     </template>
 
@@ -17,6 +18,7 @@
 <script>
 import GroupSelector from '@/components/scorecard/GroupSelectors';
 import Filters from '@/components/scorecard/Filters';
+import OverallScoreByBrand from '@/components/scorecard/OverallScoreByBrand';
 import RetailerDashboard from '@/components/scorecard/RetailersDashboard';
 import Tabs from '@/components/scorecard/Tabs';
 
@@ -25,6 +27,7 @@ export default {
         GroupSelector,
         Filters,
         RetailerDashboard,
+        OverallScoreByBrand,
         Tabs
     },
     async asyncData({ store }) {
@@ -33,6 +36,9 @@ export default {
     computed: {
       scorecard() {
         return this.$store.state.scorecard.scorecard;
+      },
+      scoreByBrands() {
+        return this.$store.state.scorecard.scoreByBrands;
       }
     }
 };

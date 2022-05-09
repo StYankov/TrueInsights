@@ -1,6 +1,7 @@
 export const state = () => ({
     selected: [],
     scorecard: null,
+    scoreByBrands: null,
     filters: null,
     selectedFilters: {}
 });
@@ -13,7 +14,6 @@ export const getters = {
             const group = rootState.groups.data.find(x => x._id == groupId)
 
             group && groups.push(group);
-            console.log(group);
         }
         return groups;
     }
@@ -32,6 +32,9 @@ export const mutations = {
     SET_FILTERS(state, filters) {
         state.filters = filters;
     },
+    SET_SCORE_BY_BRAMDS(state, results) {
+        state.scoreByBrands = results;
+    },
     SELECT_FILTER(state, payload) {
         state.selectedFilters[payload.key] = payload.filters;
     }
@@ -49,6 +52,7 @@ export const actions = {
 
             commit('SET_SCORECARD', response.data.results);
             commit('SET_FILTERS', response.data.availableFilters);
+            commit('SET_SCORE_BY_BRAMDS', response.data.resultsByBrand);
         } catch(err) { console.log(err); }
     },
     async getAvailableFilters({ commit, state }) {

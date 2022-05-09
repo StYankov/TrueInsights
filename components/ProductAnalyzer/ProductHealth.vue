@@ -22,6 +22,7 @@
       <Meter title="Description" :score="stats.description.score" />
       <Meter title="Images" :score="stats.images.score" />
       <Meter v-if="stats.reviews && stats.rating" :title="`Reviews & Ratings`" :score="(stats.reviews.score + stats.rating.score) / 2" />
+      <Meter v-if="heroImage && heroImage.score" title="Mobile Friendly Hero Image" :score="heroImage.score" />
     </div>
   </div>
 </template>
@@ -39,6 +40,11 @@ export default {
       type: Number,
       default: 0,
     },
+    heroImage: {
+      type: Object,
+      default: () => ({}),
+      required: false
+    }
   },
   methods: {
     legendFormatter({ currentValue }) {

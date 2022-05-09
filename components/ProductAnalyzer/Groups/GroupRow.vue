@@ -8,7 +8,7 @@
         </div>
 
         <div class="health-bar">
-            <ProductHealth :stats="group.statistics" />
+            <ProductHealth :stats="group.statistics" :heroImage="group.mobile_optimized" />
         </div>
         <div class="product-actions">
             <div class="suggestions">

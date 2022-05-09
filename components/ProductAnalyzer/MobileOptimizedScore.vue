@@ -57,10 +57,10 @@
                     <strong>Relative Symbol Size:</strong>
                     {{ imageData['Average Char Size / Image Width'] }}%
                 </p>
-                <p class="data-row">
+                <!-- <p class="data-row">
                     <strong>Packaged Goods Objects:</strong>
                     {{ imageData['total_objects'].length }}
-                </p>
+                </p> -->
             </div>
             <div class="col-md-3">
                 <template v-if="imageData.critical.length">
@@ -111,7 +111,9 @@ export default {
     .benchmarked-image {
         max-width: 100%;
         height: 100%;
-        max-height: 400px;
+        max-height: 260px;
+        display: block;
+        margin: 0 auto;
     }
 
     .data-row {

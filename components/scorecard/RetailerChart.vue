@@ -34,7 +34,7 @@ export default {
     };
   },
   mounted() {
-      this.renderChart();
+    this.renderChart();
   },
   methods: {
     renderChart() {
@@ -46,7 +46,7 @@ export default {
             {
               label: this.legend,
               data: this.yLabels,
-              backgroundColor: "#D35EF4",
+              backgroundColor: this.barColors,
               borderWidth: 0,
             },
           ],
@@ -64,16 +64,19 @@ export default {
             labels: {
               fontColor: "#222",
               fontSize: 15,
+              boxWidth: 0,
+              boxSize: 0,
             },
           },
           maintainAspectRatio: true,
           responsive: true,
           indexAxis: "x",
-          tooltips: {
-            intersect: false,
-          },
-          interaction: {
-            mode: "index",
+          plugins: {
+            legend: {
+              labels: {
+                boxWidth: 0
+              }
+            }
           }
         },
       });
@@ -82,6 +85,20 @@ export default {
   computed: {
     yLabels() {
       return this.column.slice(1).map((x) => x.value);
+    },
+    barColors() {
+      const colors = [];
+      for (const value of this.yLabels) {
+        if (value >= 85) {
+          colors.push("#75fb4c");
+        } else if (value >= 50) {
+          colors.push("#ffff55");
+        } else {
+          colors.push("#d85040");
+        }
+      }
+
+      return colors;
     },
   },
   watch: {
