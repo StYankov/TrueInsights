@@ -23,6 +23,7 @@ div#__nuxt,
     background-color: #fff;
     border-radius: 25px;
     box-shadow: 0 0px 25px 0px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    overflow-x: hidden;
 
     @include media-breakpoint-up(lg) {
         padding: 2rem 1rem;

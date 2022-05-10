@@ -1,26 +1,28 @@
 <template>
     <div class="scorecard-retailers-table">
         <h3>{{ scorecard.brand }}</h3>
-        <table class="table table-bordered scorecard-table">
-            <thead>
-                <tr>
-                    <th v-for="label in headers" v-html="label" :key="label"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(row, index) in rows" :key="'row-' + index">
-                    <td 
-                        :class="{
-                            'status-good': column.value >= 85,
-                            'status-ok': column.value >= 50 && column.value < 85,
-                            'status-bad': column.value < 50
-                        }"
-                        v-for="(column, colIndex) in row" 
-                        :key="`${index}-${colIndex}`"
-                        v-html="column.value + (column.suffix || '')"></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-bordered scorecard-table">
+                <thead>
+                    <tr>
+                        <th v-for="label in headers" v-html="label" :key="label"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(row, index) in rows" :key="'row-' + index">
+                        <td 
+                            :class="{
+                                'status-good': column.value >= 85,
+                                'status-ok': column.value >= 50 && column.value < 85,
+                                'status-bad': column.value < 50
+                            }"
+                            v-for="(column, colIndex) in row" 
+                            :key="`${index}-${colIndex}`"
+                            v-html="column.value + (column.suffix || '')"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <div class="brand-charts">
             <template v-if="stores.length > 1">
                 <RetailerChart :column="rows[0]" :xLabels="stores" legend="Title Length Score" />
