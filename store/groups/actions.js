@@ -26,6 +26,14 @@ export default {
             return [false, err];
         }
     },
+    async scrapeAgain({ state }) {
+        if(!state.group)
+            return [true, false];
+
+        await this.$axios.post('product-groups/run', { id: state.group._id });
+
+        return [true, false];
+    },
     async export({}, id) {
         const response = await this.$axios({
             url: `/product-groups/${id}/export`,

@@ -19,6 +19,10 @@ export default [
                 to: '/product-groups'
             },
             {
+                title: 'Settings',
+                to: '/product-groups/settings'
+            },
+            {
                 title: 'History',
                 to: '/analyzer/history'
             }

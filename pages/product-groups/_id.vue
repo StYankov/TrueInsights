@@ -2,7 +2,8 @@
     <div class="container">
         <div class="mb-3 d-flex justify-content-between align-items-center">
             <h3>{{ group.name }}</h3>
-            <Button medium @click="exportData">Export</Button>
+            <!-- <Button medium @click="exportData">Export</Button> -->
+            <Button medium @click="reFetch">Hard Refresh</Button>
         </div>
         <Filters />
 
@@ -31,6 +32,11 @@ export default {
     methods: {
         async exportData() {
             await this.$store.dispatch('groups/export', this.group._id);
+        },
+        async reFetch() {
+            await this.$store.dispatch('groups/scrapeAgain');
+            
+            this.$swal.toast({ icon: 'success', title: 'Group scheduled for crawling' });
         }
     },
     computed: {

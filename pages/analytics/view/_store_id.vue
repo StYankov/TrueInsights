@@ -10,9 +10,6 @@ export default {
             return redirect('/');
         }
     },
-    mounted() {
-        console.log(this.view);
-    },
     computed: {
         view() {
             return this.$store.state.zoho.view;
