@@ -6,7 +6,11 @@
       <div class="col">
         <Product v-if="data.product" :stats="data.statistics" :product="data.product" />
         <MobileOptimizedScore v-if="data.mobile_optimized" :imageData="data.mobile_optimized" /> 
-        <Heatmaps v-if="data.heatmaps" :heatmaps="data.heatmaps" />
+        <Heatmaps 
+          v-if="data.heatmaps" 
+          :heatmaps="data.heatmaps" 
+          :blur="data.blur"
+        />
         <Stats
           v-if="data.statistics"
           :scan="data"
