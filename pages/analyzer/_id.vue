@@ -11,6 +11,13 @@
           :heatmaps="data.heatmaps" 
           :blur="data.blur"
         />
+        <Colors 
+          v-if="data.color_palette" 
+          :product="data.product" 
+          :palette="data.color_palette" 
+          :contrast="data.contrast"
+        />
+
         <Stats
           v-if="data.statistics"
           :scan="data"
@@ -45,6 +52,7 @@ import Product from "@/components/ProductAnalyzer/Product";
 import Stats from "@/components/ProductAnalyzer/Stats";
 import Sponsored from "@/components/ProductAnalyzer/Sponsored";
 import Heatmaps from '@/components/ProductAnalyzer/Heatmaps';
+import Colors from '@/components/ProductAnalyzer/Colors';
 import MobileOptimizedScore from "@/components/ProductAnalyzer/MobileOptimizedScore";
 
 export default {
@@ -56,6 +64,7 @@ export default {
     Stats,
     Sponsored,
     Heatmaps,
+    Colors,
     MobileOptimizedScore
   },
   async asyncData({ store, params, redirect }) {

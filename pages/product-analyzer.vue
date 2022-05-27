@@ -27,6 +27,7 @@
           <Product v-if="scan.product" :stats="scan.statistics" :product="scan.product" />
           <MobileOptimizedScore v-if="scan.mobile_optimized" :imageData="scan.mobile_optimized" /> 
           <Heatmaps v-if="scan.heatmaps" :heatmaps="scan.heatmaps" :blur="scan.blur" />
+          <Colors v-if="scan.color_palette" :product="scan.product" :palette="scan.color_palette" :contrast="scan.contrast" />
           <Stats v-if="scan.statistics" :scan="scan" :stats="scan.statistics" :product="scan.product" />
           <Sponsored 
             v-if="scan && scan.sponsored" 
@@ -55,6 +56,7 @@ import Product from "@/components/ProductAnalyzer/Product";
 import Stats from "@/components/ProductAnalyzer/Stats";
 import Sponsored from "@/components/ProductAnalyzer/Sponsored";
 import Heatmaps from '@/components/ProductAnalyzer/Heatmaps';
+import Colors from '@/components/ProductAnalyzer/Colors';
 
 import SupportedStores from "@/components/ProductAnalyzer/SupportedStores";
 import UnsupportedStores from "@/components/ProductAnalyzer/UnsupportedStore";
@@ -71,7 +73,8 @@ export default {
     SupportedStores,
     UnsupportedStores,
     Heatmaps,
-    MobileOptimizedScore
+    MobileOptimizedScore,
+    Colors
   },
   data() {
     return {
