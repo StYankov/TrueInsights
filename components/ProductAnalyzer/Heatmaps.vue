@@ -33,7 +33,7 @@
                         <p class="pass" v-if="blur.logo_detected"><fa :icon="['fas', 'check']" /> Logo detected</p>
                         <p class="fail" v-else><fa :icon="['fas', 'check']" /> Logo not detected on image.</p>
 
-                        <p class="pass" v-if="blur.size_detected"><fa :icon="['fas', 'check']" /> Product size detected</p>
+                        <p class="pass" v-if="blur.size_detected"><fa :icon="['fas', 'check']" />  Product size/amount detected</p>
                         <p class="fail" v-else><fa :icon="['fas', 'check']" /> Product size not detected.</p>
 
                         <p class="fail" v-if="blur.size_too_small"><fa :icon="['fas', 'check']" />Product size too small font size</p>
