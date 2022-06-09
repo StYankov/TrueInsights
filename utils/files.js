@@ -156,7 +156,8 @@ export const getStore = url => {
     'dm.de': 'dm_de',
     'e.leclerc': 'leclerc_fr',
     'boots.com': 'boots_uk',
-    'sainsburys.co.uk': 'sainsbury_uk'
+    'sainsburys.co.uk': 'sainsbury_uk',
+    'lenovo.com': 'lenovo_de'
   }
 
   for(const key in map) {
