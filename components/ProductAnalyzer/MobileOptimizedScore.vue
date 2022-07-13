@@ -3,7 +3,7 @@
         <h4 class="mb-3">Mobile Friendly Hero Image</h4>
         <div class="row">
             <div class="col-md-3">
-                <img class="benchmarked-image" :src="imageData.image" />
+                <img class="benchmarked-image" :src="product.thumb_url" />
             </div>
             <div class="col-md-3">
                 <div class="mobile-progrss d-flex align-items-center justify-content-center flex-column">
@@ -80,6 +80,9 @@
 export default {
     props: {
         imageData: {
+            type: Object
+        },
+        product: {
             type: Object
         }
     },

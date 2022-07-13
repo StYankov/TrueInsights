@@ -9,7 +9,7 @@
         
         <transition name="expand">
             <div v-if="show" class="heatmaps__content pt-3">
-                <div class="row">
+                <div class="row" style="width: 100%">
                     <div v-if="heatmap" class="col-md-3">
                         <div class="image-box">
                             <img :src="heatmap.original" />

@@ -5,9 +5,9 @@
     <div class="row mt-5">
       <div class="col">
         <Product v-if="data.product" :stats="data.statistics" :product="data.product" />
-        <MobileOptimizedScore v-if="data.mobile_optimized" :imageData="data.mobile_optimized" /> 
+        <MobileOptimizedScore v-if="data.mobile_optimized" :product="data.product" :imageData="data.mobile_optimized" /> 
         <Heatmaps 
-          v-if="data.heatmaps" 
+          v-if="data.heatmaps || data.blur" 
           :heatmaps="data.heatmaps" 
           :blur="data.blur"
         />

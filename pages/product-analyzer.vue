@@ -25,8 +25,12 @@
       <template v-if="scan">
         <div class="col">
           <Product v-if="scan.product" :stats="scan.statistics" :product="scan.product" />
-          <MobileOptimizedScore v-if="scan.mobile_optimized" :imageData="scan.mobile_optimized" /> 
-          <Heatmaps v-if="scan.heatmaps" :heatmaps="scan.heatmaps" :blur="scan.blur" />
+          <MobileOptimizedScore v-if="scan.mobile_optimized" :product="scan.product" :imageData="scan.mobile_optimized" /> 
+          <Heatmaps 
+            v-if="scan.heatmaps || scan.blur" 
+            :heatmaps="scan.heatmaps" 
+            :blur="scan.blur" 
+          />
           <Colors v-if="scan.color_palette" :product="scan.product" :palette="scan.color_palette" :contrast="scan.contrast" />
           <Stats v-if="scan.statistics" :scan="scan" :stats="scan.statistics" :product="scan.product" />
           <Sponsored 
